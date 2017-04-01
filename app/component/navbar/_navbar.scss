@@ -1,0 +1,29 @@
+@import '../../scss/lib/vars';
+
+.navbar {
+  width: 100%;
+  height: 10vw;
+  background-color: $site-primary;
+  position: relative;
+
+  .bg-blue {
+    background-color: $site-secondary;
+    width: 97.5%;
+    height: 80%;
+    position: absolute;
+    left: 1.25%;
+    top: 10%;
+    border-radius: 2px;
+
+    h2 {
+      font-size: 3vw;
+      font-family: $font-title;
+
+    }
+    p {
+      font-size: 2vw;
+      font-family: $font-std;
+    }
+  }
+
+}

@@ -1,0 +1,21 @@
+@import '../lib/vars';
+
+html body {
+  height: 100%;
+  margin: 0 auto;
+  background-color: $site-quaternary;
+}
+
+main{
+  max-width: 960px;
+  width: 90%;
+  margin: 0 5%;
+  //TODO: remove this rule, it's for the "under construction page"
+  height: 600px;
+}
+
+footer {
+  height: 6vw;
+  width: 100%;
+  background-color: $site-primary;
+}
