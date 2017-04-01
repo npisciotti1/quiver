@@ -8,7 +8,7 @@ const pascalcase = require('pascalcase');
 const path = require('path');
 const uiRouter = require('angular-ui-router');
 
-const quiver = angular.module('cfgram', [uiRouter]);
+const quiver = angular.module('quiver', [uiRouter]);
 
 let context = require.context('./config/', true, /\.js$/);
 context.keys().forEach( key => {
