@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js",
-    "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
-    "lint": "./node_modules/eslint/bin/eslint.js ./*"
+    "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot"
   },
   "keywords": [],
   "author": "",
