@@ -4,14 +4,15 @@
   "description": "The \"Quiver\" App for Bands and Venues",
   "main": "karma.conf.js",
   "directories": {
-  "test": "test"
+  "test": "test",
+  "engines": {
+    "node": "6.9.5"
   },
-  "author": "Quiver-Team CF-401d13", 
+  "author": "Quiver-Team CF-401d13",
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js",
     "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
-    "heroku-postbuild": "webpack -p --progress",
-    "engines": {"node": "6.9.5"}
+    "heroku-postbuild": "webpack -p --progress"
   },
   "keywords": [],
   "author": "",
