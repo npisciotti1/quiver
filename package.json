@@ -5,13 +5,11 @@
   "main": "karma.conf.js",
   "directories": {
   "test": "test",
-  "engines": {
-    "node": "6.9.5"
-  },
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js",
     "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
-    "heroku-postbuild": "webpack -p --progress"
+    "heroku-postbuild": "webpack -p --progress",
+    "engines": {"node": "6.9.5"}
   },
   "author": "Quiver-Team CF-401d13",
   "license": "ISC",
