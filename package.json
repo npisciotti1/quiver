@@ -1,13 +1,17 @@
 {
-  "name": "frontend-auth",
+  "name": "Quiver-App",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "The \"Quiver\" App for Bands and Venues",
+  "main": "karma.conf.js",
+  "directories": {
+  "test": "test"
+  },
+  "author": "Quiver-Team CF-401d13", 
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js",
     "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
     "heroku-postbuild": "webpack -p --progress",
-    "engines": {"node": "4.4.7"} 
+    "engines": {"node": "6.9.5"}
   },
   "keywords": [],
   "author": "",
