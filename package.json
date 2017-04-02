@@ -8,14 +8,12 @@
   "engines": {
     "node": "6.9.5"
   },
-  "author": "Quiver-Team CF-401d13",
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js",
     "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
     "heroku-postbuild": "webpack -p --progress"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Quiver-Team CF-401d13",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.3",
