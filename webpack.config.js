@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const webpack = require('webpack');
 const HTMLPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanPlugin = require('clean-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -33,6 +34,7 @@ module.exports = {
         warnings: false,
       }
     }),
+    new CleanPlugin(),
   ],
   module: {
     rules: [
