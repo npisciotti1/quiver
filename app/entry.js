@@ -22,13 +22,12 @@ context.keys().forEach( key => {
   quiver.component(name, module);
 });
 
-//TODO: Uncomment this block below upon adding services
-// context = require.context('./service/', true, /\.js$/);
-// context.keys().forEach( key => {
-//   let name = camelcase(path.basename(key, '.js'));
-//   let module = context(key);
-//   quiver.service(name, module);
-// });
+context = require.context('./service/', true, /\.js$/);
+context.keys().forEach( key => {
+  let name = camelcase(path.basename(key, '.js'));
+  let module = context(key);
+  quiver.service(name, module);
+});
 
 context = require.context('./view/', true, /\.js$/);
 context.keys().forEach( key => {
