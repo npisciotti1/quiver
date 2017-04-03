@@ -12,7 +12,7 @@
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js",
     "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
-    "heroku-postbuild": "webpack -p --progress"
+    "heroku-postbuild": "webpack -p"
   },
   "engines": {
     "node": "6.9.5",
