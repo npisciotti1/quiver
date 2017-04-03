@@ -15,7 +15,8 @@
     "heroku-postbuild": "webpack -p --progress"
   },
   "engines": {
-    "node": "6.9.5"
+    "node": "6.9.5",
+    "npm":  "v3.10.10"
   },
   "dependencies": {
     "angular": "^1.6.1",
