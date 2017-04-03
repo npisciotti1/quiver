@@ -25,7 +25,13 @@ module.exports = {
       'process.env': {
         '__API_URL__': JSON.stringify(process.env.API_URL),
         '__DEBUG__': JSON.stringify(!production)
-      },
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      mangle: true,
+      compress: {
+        warnings: false,
+      }
     }),
   ],
   module: {
