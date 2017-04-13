@@ -20,6 +20,11 @@ function authService($q, $log, $http, $window) {
 
   service.getToken = function() {
     $log.debug('authService.getToken()');
-    
+
+    if(token) return $q.resolve(token);
+
+    token = $window.localStorage.token;
+    if(token) return $q.resolve(token);
+    return $q.reject(new Error('token not found'));
   }
 }
