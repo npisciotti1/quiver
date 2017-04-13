@@ -37,7 +37,7 @@ function authService($q, $log, $http, $window) {
   }
 
   service.signup = function(user) {
-    $log.debug('authService.signup');
+    $log.debug('authService.signup()');
 
     let url = `${__API_URL__}/api/signup`;
     let config = {
@@ -53,8 +53,33 @@ function authService($q, $log, $http, $window) {
       return setToken(res.data);
     })
     .catch(err => {
-      $log.log('failure', err.message);
+      $log.error('failure', err.message);
       return $q.reject(err);
     });
   }
+
+  service.login = function(user) {
+    $log.debug('authService.login()');
+
+    let url = `${__API_URL__}/api/login`;
+    let base64 = $window.btoa(`${user.username}:${user.password}`);
+    let config = {
+      headers: {
+        'Accept': 'application',
+        'Authorization': ` Basic ${base64}`
+      }
+    };
+
+    return $http.get(url, config)
+    .then( res => {
+      $log.log('success', res.data);
+      return setToken(res.data);
+    })
+    .catch( err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+  }
+
+  return service;
 }
