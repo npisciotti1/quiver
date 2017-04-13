@@ -16,6 +16,7 @@ function routeConfig($stateProvider, $urlRouterProvider) {
       template: require('../view/dashboard/dashboard.html'),
       controller: 'DashboardController',
       controllerAs: 'dashboardCtrl'
+    },
     {
       name: 'landing',
       url: '/join',
