@@ -8,6 +8,7 @@
       'success': logForm.username.$valid
     }">
       <input type="text"
+      uib-tooltip="username must have 4 characters"
       name="username"
       placeholder="username"
       class="input-std"
@@ -15,10 +16,11 @@
       ng-model="loginCtrl.user.username" required>
     </div>
 
-    <div class="{
-      'error': loginForm.password.$invalid && loginForm.$submitted,
-      'success': loginForm.password.$valid
-    }">
+    <div
+      ng-class="{
+        'error': loginForm.password.$invalid && loginForm.$submitted,
+        'success': loginForm.password.$valid
+      }">
       <input type="password" name="password"
       nd-disabled="loginForm.username.$invalid"
       placeholder="password"
