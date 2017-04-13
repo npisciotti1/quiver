@@ -27,4 +27,12 @@ function authService($q, $log, $http, $window) {
     if(token) return $q.resolve(token);
     return $q.reject(new Error('token not found'));
   }
+
+  service.logout = function() {
+    $log.debug('authService.logout()');
+
+    delete $window.localStorage.token;
+    token = null;
+    return $q.resolve();
+  }
 }
