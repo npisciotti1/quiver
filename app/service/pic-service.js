@@ -7,8 +7,8 @@ function picService($q, $log, $http, Upload, authService) {
 
   let service = {};
 
-  service.uploadPic = function(venueData, picData) {
-    $log.debug('authService.uploadPic');
+  service.uploadVenuePic = function(venueData, picData) {
+    $log.debug('authService.uploadVenuePic');
 
     return authService.getToken()
     .then( token => {
