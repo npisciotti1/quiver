@@ -35,4 +35,26 @@ function authService($q, $log, $http, $window) {
     token = null;
     return $q.resolve();
   }
+
+  service.signup = function(user) {
+    $log.debug('authService.signup');
+
+    let url = `${__API_URL__}/api/signup`;
+    let config = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    }
+
+    return $http.post(url, user, config)
+    .then( res => {
+      $log.log('seccess', res.data);
+      return setToken(res.data);
+    })
+    .catch(err => {
+      $log.log('failure', err.message);
+      return $q.reject(err);
+    });
+  }
 }
