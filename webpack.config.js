@@ -2,9 +2,9 @@
 
 const dotenv = require('dotenv');
 const webpack = require('webpack');
-const path = require('path');
 const HTMLPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanPlugin = require('clean-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -26,8 +26,15 @@ module.exports = {
       'process.env': {
         '__API_URL__': JSON.stringify(process.env.API_URL),
         '__DEBUG__': JSON.stringify(!production)
-      },
+      }
     }),
+    new webpack.optimize.UglifyJsPlugin({
+      mangle: true,
+      compress: {
+        warnings: false,
+      }
+    }),
+    new CleanPlugin(),
   ],
   module: {
     rules: [
@@ -42,7 +49,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+        loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader?sourceMap'])
       }
     ]
   }
