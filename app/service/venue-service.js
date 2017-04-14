@@ -76,7 +76,7 @@ function venueService($q, $log, $http, authService) {
         }
       }
 
-      return $http.put(url, venueDate, config);
+      return $http.put(url, venueData, config);
     })
     .then( res => {
       for (let i = 0; i < service.venues.length; i++) {
