@@ -13,7 +13,7 @@ function venueService($q, $log, $http, authService) {
 
     return authService.getToken()
     .then( token => {
-      let url = `${__API_URL__}/api/venue`;
+      let url = `${process.env.__API_URL__}/api/venue`;
       let config = {
         headers = {
           Accept: 'application/json',
@@ -41,7 +41,7 @@ function venueService($q, $log, $http, authService) {
 
     return authService.getToken()
     .then( token => {
-      let url = `${__API_URL__}/api/venue`;
+      let url = `${process.env.__API_URL__}/api/venue`;
       let config = {
         headers: {
           Accept: 'application/json',
@@ -67,7 +67,7 @@ function venueService($q, $log, $http, authService) {
 
     return authService.getToken()
     .then( token => {
-      let url = `${__API_URL__}/api/venue/${venueID}`;
+      let url = `${process.env.__API_URL__}/api/venue/${venueID}`;
       let config = {
         headers: {
           Accept: 'application/json',
@@ -100,7 +100,7 @@ function venueService($q, $log, $http, authService) {
 
     return authService.getToken()
     .then( token => {
-      let url = `${__API_URL__}/api/venue/${venueID}`;
+      let url = `${process.env.__API_URL__}/api/venue/${venueID}`;
       let config = {
         headers: {
           Authorization: `Bearer ${token}`
