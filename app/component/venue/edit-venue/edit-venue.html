@@ -1,0 +1,19 @@
+<section class="edit">
+  <form class="edit-venue"
+    name="editVenue"
+    ng-submit="editVenueCtrl.upateVenue()"
+    no-validate>
+
+    <fieldset>
+      <span class="item-label">name:</span>
+      <input name="name" class="input-std" ng-model="editVenueCtrl.venue.name">
+    </fieldset>
+
+    <fieldset>
+      <span class="item-label">description:</span>
+      <input name="description" class="input-std" ng-model="editVenueCtrl.venue.description">
+    </fieldset>
+
+    <button class="btn-std">update</button>
+  </form>
+</section>
