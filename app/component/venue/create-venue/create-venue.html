@@ -1,0 +1,27 @@
+<section class="create-venue">
+  <h3>New Venue Creation</h3>
+
+  <form name="createVenueForm"
+    class="venue-form"
+    ng-submit="createVenueCtrl.createVenue()">
+
+    <fieldset>
+      <input type="text"
+      name="name"
+      class="input-std"
+      type="type"
+      ng-model="createVenueCtrl.venue.name"
+      placeholder="venue name" required>
+    </fieldset>
+
+    <fieldset>
+      <input type="text"
+      name="description"
+      class="input-std"
+      ng-model="createVenueCtrl.venue.desciption"
+      placeholder="venue description" required>
+    </fieldset>
+
+    <button class="btn-std" type="submit">create venue</button>
+  </form>
+</section>
