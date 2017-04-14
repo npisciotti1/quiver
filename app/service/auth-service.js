@@ -39,7 +39,7 @@ function authService($q, $log, $http, $window) {
   service.signup = function(user) {
     $log.debug('authService.signup()');
 
-    let url = `${__API_URL__}/api/signup`;
+    let url = `${process.env.__API_URL__}/api/signup`;
     let config = {
       headers: {
         'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ function authService($q, $log, $http, $window) {
 
     return $http.post(url, user, config)
     .then( res => {
-      $log.log('seccess', res.data);
+      $log.log('success', res.data);
       return setToken(res.data);
     })
     .catch(err => {
@@ -61,7 +61,7 @@ function authService($q, $log, $http, $window) {
   service.login = function(user) {
     $log.debug('authService.login()');
 
-    let url = `${__API_URL__}/api/login`;
+    let url = `${process.env.__API_URL__}/api/login`;
     let base64 = $window.btoa(`${user.username}:${user.password}`);
     let config = {
       headers: {
