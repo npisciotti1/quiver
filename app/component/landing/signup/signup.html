@@ -1,0 +1,30 @@
+<section class="signup">
+  <form class="signup-form"
+    ng-submit="signupCtrl.signup(signupCtrl.user)"
+    no-validate>
+
+    <input class="input-std"
+      type="text"
+      placeholder="name"
+      ng-minlength="4"
+      ng-model="signupCtrl.user.username" required>
+
+    <input class="input-std"
+      type="email"
+      placeholder="email"
+      ng-model="signupCtrl.user.email" required>
+
+    <input class="input-std"
+      type="password"
+      placeholder="password"
+      ng-minlength="3"
+      ng-model="signupCtrl.user.password" required>
+
+    <div class="user-type-selector">
+      <span class="label-body">I am signing up as a venue:</span>
+      <input ng-change="signupCtrl.venueCheck()" type="checkbox" ng-model="signupCtrl.venueCheckbox" name="isVenue">
+    </div>
+
+    <input type="submit" class="btn-std" value="sign up">
+  </form>
+</section>
