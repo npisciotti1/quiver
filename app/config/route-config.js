@@ -18,6 +18,13 @@ function routeConfig($stateProvider, $urlRouterProvider) {
       controllerAs: 'dashboardCtrl'
     },
     {
+      name: 'venue-search',
+      url: '/venue-search',
+      template: require('../view/venue-search/venue-search.html'),
+      controller: 'VenueSearchController',
+      controllerAs: 'venueSearchCtrl'
+    },
+    {
       name: 'landing',
       url: '/join',
       template: require('../view/landing/landing.html'),
