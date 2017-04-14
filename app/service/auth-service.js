@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 module.exports = ['$q', '$log', '$http', '$window', authService];
 
@@ -26,7 +26,7 @@ function authService($q, $log, $http, $window) {
     token = $window.localStorage.token;
     if(token) return $q.resolve(token);
     return $q.reject(new Error('token not found'));
-  }
+  };
 
   service.logout = function() {
     $log.debug('authService.logout()');
@@ -34,7 +34,7 @@ function authService($q, $log, $http, $window) {
     delete $window.localStorage.token;
     token = null;
     return $q.resolve();
-  }
+  };
 
   service.signup = function(user) {
     $log.debug('authService.signup()');
@@ -45,7 +45,7 @@ function authService($q, $log, $http, $window) {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
-    }
+    };
 
     return $http.post(url, user, config)
     .then( res => {
@@ -56,7 +56,7 @@ function authService($q, $log, $http, $window) {
       $log.error('failure', err.message);
       return $q.reject(err);
     });
-  }
+  };
 
   service.login = function(user) {
     $log.debug('authService.login()');
@@ -79,7 +79,7 @@ function authService($q, $log, $http, $window) {
       $log.error(err.message);
       return $q.reject(err);
     });
-  }
+  };
 
   return service;
 }
