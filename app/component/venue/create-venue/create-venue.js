@@ -20,6 +20,6 @@ function CreateVenueController($log, venueService) {
     .then( () => {
       this.venue.name = null;
       this.venue.description = null;
-    })
-  }
-};
+    });
+  };
+}

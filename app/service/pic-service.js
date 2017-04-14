@@ -12,10 +12,10 @@ function picService($q, $log, $http, Upload, authService) {
 
     return authService.getToken()
     .then( token => {
-      let url = `${__API_URL__}/api/venue/${venueData._id}/pic`;
+      let url = `${process.env.__API_URL__}/api/venue/${venueData._id}/pic`;
       let headers = {
-        Authorization: `Bearer ${token}`
-        Accept: 'application/json',
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/json'
       };
 
       return Upload.upload({
@@ -36,7 +36,7 @@ function picService($q, $log, $http, Upload, authService) {
     .catch( err => {
       $log.error(err.messasge);
       return $q.reject(err);
-    })
+    });
   };
 
   return service;

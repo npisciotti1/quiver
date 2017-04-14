@@ -16,5 +16,5 @@ function EditVenueController($log, venueService) {
 
   this.updateVenue = function() {
     venueService.updateVenue(this.venue._id, this.venue);
-  }
-};
+  };
+}

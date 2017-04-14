@@ -18,10 +18,10 @@ function UploadPicController($log, picService) {
 
   this.uploadPic = function() {
     picService.uploadVenuePic(this.venue, this.pic)
-    .then( ()) => {
+    .then( () => {
       this.pic.name = null;
       this.pic.description = null;
       this.pic.file = null;
-    })
-  }
+    });
+  };
 }
