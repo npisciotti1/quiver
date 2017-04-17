@@ -1,0 +1,19 @@
+<section class="create-gear">
+  <h3>Let People Know What Gear You're Stacking!</h3>
+
+  <form name="createGearForm"
+    class="gear-form"
+    ng-submit=createGearCtrl.createGear()>
+
+    <fieldset>
+      <input type="text"
+      name="name"
+      class="input-std"
+      type="type"
+      ng-model="createGearCtrl.gear.gear"
+      placeholder="gear" required>
+    </fieldset>
+
+    <button class="btn-std" type="subtmit">PUT YOUR GEAR HERE</button>
+  </form>
+</section>
