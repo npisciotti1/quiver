@@ -13,9 +13,10 @@ function venueService($q, $log, $http, authService) {
 
     return authService.getToken()
     .then( token => {
+      console.log('token in authService', token);
       let url = `${process.env.__API_URL__}/api/venue`;
       let config = {
-        headers = {
+        headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`
@@ -33,7 +34,7 @@ function venueService($q, $log, $http, authService) {
     .catch(err => {
       $log.error(err.message);
       return $q.reject(err);
-    })
+    });
   };
 
   service.fetchVenues = function() {
@@ -59,7 +60,7 @@ function venueService($q, $log, $http, authService) {
     .catch( err => {
       $log.error(err.message);
       return $q.reject(err);
-    })
+    });
   };
 
   service.updateVenue = function(venueID, venueData) {
@@ -74,7 +75,7 @@ function venueService($q, $log, $http, authService) {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         }
-      }
+      };
 
       return $http.put(url, venueData, config);
     })
@@ -109,7 +110,7 @@ function venueService($q, $log, $http, authService) {
 
       return $http.delete(url, config);
     })
-    .then (res => {
+    .then ( () => {
       for(let i = 0; i < service.venues.length; i++) {
         let current = service.venues[i];
         if (current._id === venueID) {
@@ -121,8 +122,8 @@ function venueService($q, $log, $http, authService) {
     .catch( err => {
       $log.error(err.message);
       return $q.reject(err);
-    })
-  }
+    });
+  };
 
   return service;
 }
