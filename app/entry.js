@@ -7,8 +7,9 @@ const camelcase = require('camelcase');
 const pascalcase = require('pascalcase');
 const path = require('path');
 const uiRouter = require('angular-ui-router');
+const ngFileUpload = require('ng-file-upload');
 
-const quiver = angular.module('quiver', [uiRouter]);
+const quiver = angular.module('quiver', [uiRouter, ngFileUpload]);
 
 let context = require.context('./config/', true, /\.js$/);
 context.keys().forEach( key => {
