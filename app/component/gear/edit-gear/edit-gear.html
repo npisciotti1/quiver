@@ -1,0 +1,14 @@
+<section class="edit-gear-section">
+  <form class="edit-gear"
+    name="editGear"
+    ng-submit="editGearCtrl.updateGear()"
+    no-validate>
+
+    <fieldset>
+      <span class="gear-label">name:</span>
+      <input name="name" class="input-std" ng-model="editGearCtrl.gear.gear">
+    </fieldset>
+
+    <button class="btn-std">update</button>
+  </form>
+</section>
