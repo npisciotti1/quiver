@@ -17,17 +17,15 @@ function SignupController($log, $location, authService, venueService) {
     $log.debug('signupCtrl.signup()');
 
     let tempVenue = {
-      name: 'new user',
-      address: 'place'
+      name: `venue no. ${Math.floor(Math.random() * 1000000)}`,
+      address: `${Math.floor(Math.random() * 1000000)}, main st.`
     };
 
     authService.signup(user)
-    .then( response => {
+    .then( () => {
       $location.url('/dashboard');
 
-      tempVenue.userID = response.userID;
       venueService.createVenue(tempVenue);
-      console.log(tempVenue);
     });
   }
 

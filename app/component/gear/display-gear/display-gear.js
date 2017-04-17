@@ -1,9 +1,9 @@
 'use strict';
 
-require('./_create-gear.scss');
+require('./_display-gear.scss');
 
 module.exports = {
-  template: require('./create-venue.html'),
+  template: require('./display-gear.html'),
   controller: ['$log', 'venueService', 'gearService', CreateGearController],
   controllerAs: 'createVenueCtrl',
   bindings: {

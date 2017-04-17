@@ -13,10 +13,6 @@ function authService($q, $log, $http, $window) {
 
     if(!_token) return $q.reject(new Error('no token'));
 
-    // This line deals with our modified response
-    // HOTFIX!
-    if(_token.token) _token = _token.token;
-
     $window.localStorage.token = _token;
     token = _token;
     return $q.resolve(token);
@@ -24,6 +20,8 @@ function authService($q, $log, $http, $window) {
 
   service.getToken = function() {
     $log.debug('authService.getToken()');
+
+    console.log(1);
 
     if(token) return $q.resolve(token);
 
