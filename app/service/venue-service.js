@@ -13,6 +13,7 @@ function venueService($q, $log, $http, authService) {
 
     return authService.getToken()
     .then( token => {
+      console.log('token in authService', token);
       let url = `${process.env.__API_URL__}/api/venue`;
       let config = {
         headers: {
