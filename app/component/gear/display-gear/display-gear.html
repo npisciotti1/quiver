@@ -1,5 +1,14 @@
 <section class="display-gear">
   <h3>Gear</h3>
 
+  <!--TODO: add ng-table -->
+  <table ng-table="displayGearCtrl.tableParams" class="table" show-filter="true">
+    <tr ng-repeat="item in $data">
+        <td title="'name'" filter="{ name: 'text'}" sortable="'name'">
+            {{item.name}}</td>
+        <td title="'description'" filter="{ age: 'number'}" sortable="'age'">
+            {{item.description}}</td>
+    </tr>
+</table>
 
 </section>

@@ -4,22 +4,23 @@ require('./_display-gear.scss');
 
 module.exports = {
   template: require('./display-gear.html'),
-  controller: ['$log', 'venueService', 'gearService', CreateGearController],
-  controllerAs: 'createVenueCtrl',
+  controller: ['$log', 'venueService', 'gearService', DisplayGearController],
+  controllerAs: 'displayGearCtrl',
   bindings: {
     venue: '<'
   }
 };
 
-function CreateGearController($log, venueService, gearService) {
-  $log.debug('CreateGearController');
+function DisplayGearController($log, venueService, gearService) {
+  $log.debug('DisplayGearController');
 
   this.gear = {};
 
-  this.createGear = function() {
-    $log.debug('CreateGearController.createGear()');
 
-    gearService.createGear(this.venue._id, this.gear)
+  this.displayGear = function() {
+    $log.debug('DisplayGearController.createGear()');
+
+    gearService.displayGear(this.venue._id, this.gear)
     .then( () => {
       this.gear = {};
     });
