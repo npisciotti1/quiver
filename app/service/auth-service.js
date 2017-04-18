@@ -34,6 +34,7 @@ function authService($q, $log, $http, $window) {
     $log.debug('authService.logout()');
 
     delete $window.localStorage.token;
+    delete $window.localStorage.currentVenue;
     token = null;
     return $q.resolve();
   };
