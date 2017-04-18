@@ -18,11 +18,34 @@
     h2 {
       font-size: 3vw;
       font-family: $font-title;
+      display: inline-block;
 
     }
+
     p {
       font-size: 2vw;
       font-family: $font-std;
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: inline-block;
+      width: 50%;
+      height: 100%;
+
+
+      ul {
+
+
+        li{
+          display: inline-block;
+          padding: 1vw;
+        }
+      }
+
+      button {
+        float: right;
+      }
     }
   }
 
