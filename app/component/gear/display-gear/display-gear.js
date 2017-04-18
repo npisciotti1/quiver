@@ -4,24 +4,37 @@ require('./_display-gear.scss');
 
 module.exports = {
   template: require('./display-gear.html'),
-  controller: ['$log', 'venueService', 'gearService', CreateGearController],
-  controllerAs: 'createVenueCtrl',
+  controller: ['$log', '$window', 'venueService', 'gearService', DisplayGearController],
+  controllerAs: 'displayGearCtrl',
   bindings: {
     venue: '<'
   }
 };
 
-function CreateGearController($log, venueService, gearService) {
-  $log.debug('CreateGearController');
+function DisplayGearController($log, $window, venueService, gearService) {
+  $log.debug('DisplayGearController');
 
   this.gear = {};
 
-  this.createGear = function() {
-    $log.debug('CreateGearController.createGear()');
+  this.audioArray = [];
+  this.lightingArray = [];
+  this.stageArray = [];
 
-    gearService.createGear(this.venue._id, this.gear)
-    .then( () => {
-      this.gear = {};
+  this.fetchGear = function() {
+    $log.debug('DisplayGearController.fetchGear()');
+
+    gearService.fetchGear($window.localStorage.currentVenue)
+    .then( gear => {
+      this.gear = gear;
     });
   };
+
+  this.arrayifyGear = function(obj) {
+    if(!obj) return $log.error('didn\'t provide an object');
+
+    let keys = .keys()
+    let result = [];
+  }
+
+  this.fetchGear();
 }
