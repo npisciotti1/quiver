@@ -16,9 +16,6 @@ function DisplayGearController($log, $window, venueService, gearService) {
 
   this.gear = {};
 
-  this.audioArray = [];
-  this.lightingArray = [];
-  this.stageArray = [];
 
   this.fetchGear = function() {
     $log.debug('DisplayGearController.fetchGear()');
@@ -26,6 +23,9 @@ function DisplayGearController($log, $window, venueService, gearService) {
     gearService.fetchGear($window.localStorage.currentVenue)
     .then( gear => {
       this.gear = gear;
+      this.audioArray = Object.keys(Object.keys(gear)[0]);
+      this.lightingArray = Object.keys(Object.keys(gear)[1]);
+      this.stageArray = Object.keys(Object.keys(gear)[2]);
     });
   };
 
