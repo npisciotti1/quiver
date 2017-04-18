@@ -21,11 +21,10 @@ function gearService($q, $log, $http, authService) {
           'Content-Type': 'application/json'
         }
       };
-      console.log('config object:', config);
 
       return $http.post(url, gearData, config)
       .then( res => {
-        service.userGear = res.data;
+        service.userGear = res.data.gear;
         return service.userGear;
       })
       .catch( err => {
@@ -51,7 +50,7 @@ function gearService($q, $log, $http, authService) {
       return $http.get(url, config)
       .then( res => {
         $log.log('gear was fetched');
-        service.userGear = res.data;
+        service.userGear = res.data.gear;
         return service.userGear;
       })
       .catch( err => {

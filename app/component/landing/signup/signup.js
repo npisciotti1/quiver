@@ -17,7 +17,7 @@ function SignupController($log, $q, $window, $location, authService, venueServic
     name: `venue no. ${Math.floor(Math.random() * 1000000)}`,
     address: `${Math.floor(Math.random() * 1000000)}, main st.`
   };
-  
+
   let tempGear = {
     gear: {
       audio: [
@@ -51,28 +51,14 @@ function SignupController($log, $q, $window, $location, authService, venueServic
 
     authService.signup(user)
     .then( () => {
-      $location.url('/dashboard');
 
       return $q.resolve(venueService.createVenue(tempVenue));
     })
     .then( venueData => {
-      gearService.postGear(venueData._id, tempGear);
+      return $q.resolve(gearService.postGear(venueData._id, tempGear));
+    })
+    .then(userGear => {
+      $location.url('/dashboard');
     });
   };
-
-
-  // this.venueCheck = function() {
-  //   $log.debug('signupCtrl.venueCheck()');
-  //
-  //   if(this.venueCheckbox) {
-  //     this.user.isVenue = true;
-  //     // TODO: Add functionality for artist
-  //     return;
-  //   }
-  //
-  //   this.user.isVenue = false;
-  //   // TODO: Add functionality for artist
-  //
-  //   return;
-  // }
 }

@@ -7,8 +7,29 @@
     <div class="table-tab"><span>Lighting</span></div>
     <div class="table-tab"><span>Stage</span></div>
 
-    <table ng-repeat="category in Object.keys(displayGearCtrl.gear)" name="category">
+    <!-- <table ng-repeat="category in displayGearCtrl.gearArray" name="category">
       <tr ng-repeat="item in category">
+        <td> {{ item.name }} </td>
+        <td> {{ item.description }} </td>
+      </tr>
+    </table> -->
+
+    <table name="category">
+      <tr ng-repeat="item in displayGearCtrl.gearArray[0]">
+        <td> {{ item.name }} </td>
+        <td> {{ item.description }} </td>
+      </tr>
+    </table>
+
+    <table name="category">
+      <tr ng-repeat="item in displayGearCtrl.gearArray[1]">
+        <td> {{ item.name }} </td>
+        <td> {{ item.description }} </td>
+      </tr>
+    </table>
+
+    <table name="category">
+      <tr ng-repeat="item in displayGearCtrl.gearArray[2]">
         <td> {{ item.name }} </td>
         <td> {{ item.description }} </td>
       </tr>
