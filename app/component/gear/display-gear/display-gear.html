@@ -3,9 +3,9 @@
   <h2>Gear</h2>
   <div class="table-wrapper">
 
-    <div class="table-tab"><span>Audio</span></div>
-    <div class="table-tab"><span>Lighting</span></div>
-    <div class="table-tab"><span>Stage</span></div>
+    <div class="table-tab" ng-click="displayGearCtrl.showAudio()"><span>Audio</span></div>
+    <div class="table-tab" ng-click="displayGearCtrl.showLighting()"><span>Lighting</span></div>
+    <div class="table-tab" ng-click="displayGearCtrl.showStage()"><span>Stage</span></div>
 
     <!-- <table ng-repeat="category in displayGearCtrl.gearArray" name="category">
       <tr ng-repeat="item in category">
@@ -14,22 +14,26 @@
       </tr>
     </table> -->
 
-    <table name="category">
-      <tr ng-repeat="item in displayGearCtrl.gearArray[0]">
+    <table name="audio" ng-if="displayGearCtrl.displayAudio">
+      <tr ng-repeat="item in displayGearCtrl.audioArray">
         <td> {{ item.name }} </td>
         <td> {{ item.description }} </td>
       </tr>
     </table>
 
-    <table name="category">
-      <tr ng-repeat="item in displayGearCtrl.gearArray[1]">
+    <br></br>
+
+    <table name="lighting" ng-if="displayGearCtrl.displayLighting">
+      <tr ng-repeat="item in displayGearCtrl.lightingArray">
         <td> {{ item.name }} </td>
         <td> {{ item.description }} </td>
       </tr>
     </table>
 
-    <table name="category">
-      <tr ng-repeat="item in displayGearCtrl.gearArray[2]">
+    <br></br>
+
+    <table name="stage" ng-if="displayGearCtrl.displayStage">
+      <tr ng-repeat="item in displayGearCtrl.stageArray">
         <td> {{ item.name }} </td>
         <td> {{ item.description }} </td>
       </tr>
