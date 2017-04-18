@@ -17,12 +17,8 @@ function DisplayGearController($log, venueService, gearService) {
   this.gear = {};
 
 
-  this.displayGear = function() {
-    $log.debug('DisplayGearController.createGear()');
+  this.fetchGear = function() {
+    $log.debug('DisplayGearController.fetchGear()');
 
-    gearService.displayGear(this.venue._id, this.gear)
-    .then( () => {
-      this.gear = {};
-    });
   };
 }

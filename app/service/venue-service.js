@@ -14,7 +14,6 @@ function venueService($q, $log, $http, authService) {
     return authService.getToken()
     .then( token => {
 
-      console.log('token in authService', token);
       let url = `${process.env.__API_URL__}/api/venue`;
       let config = {
         headers: {
@@ -23,7 +22,6 @@ function venueService($q, $log, $http, authService) {
           Authorization: `Bearer ${token}`
         }
       };
-      console.log('venue:', venue);
       return $http.post(url, venue, config);
     })
     .then( res => {

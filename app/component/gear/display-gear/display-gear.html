@@ -1,14 +1,30 @@
 <section class="display-gear">
-  <h3>Gear</h3>
+  
+  <h2>Gear</h2>
+  <div class="table-wrapper">
 
-  <!--TODO: add ng-table -->
-  <table ng-table="displayGearCtrl.tableParams" class="table" show-filter="true">
-    <tr ng-repeat="item in $data">
-        <td title="'name'" filter="{ name: 'text'}" sortable="'name'">
-            {{item.name}}</td>
-        <td title="'description'" filter="{ age: 'number'}" sortable="'age'">
-            {{item.description}}</td>
+    <div class="table-tab"><span>Audio</span></div>
+    <div class="table-tab"><span>Lighting</span></div>
+    <div class="table-tab"><span>Stage</span></div>
+
+    <table class="gear-table" name="audio">
+    <tr>
+      <td></td>
     </tr>
-</table>
+    </table>
+
+    <table class="gear-table" name="lighting">
+    <tr>
+      <td></td>
+    </tr>
+    </table>
+
+    <table class="gear-table" name="stage">
+    <tr>
+      <td></td>
+    </tr>
+    </table>
+
+  </div>
 
 </section>

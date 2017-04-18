@@ -2,11 +2,11 @@
 
 module.exports = {
   template: require('./signup.html'),
-  controller: ['$log', '$location', 'authService', 'venueService', SignupController],
+  controller: ['$log', '$q', '$window', '$location', 'authService', 'venueService', 'gearService', SignupController],
   controllerAs: 'signupCtrl'
 };
 
-function SignupController($log, $location, authService, venueService) {
+function SignupController($log, $q, $window, $location, authService, venueService, gearService) {
   $log.debug('SignupController');
   authService.getToken()
   .then( () => {
@@ -21,13 +21,31 @@ function SignupController($log, $location, authService, venueService) {
       address: `${Math.floor(Math.random() * 1000000)}, main st.`
     };
 
+    let tempGear = {
+      gear: {
+        audio: {
+          'item': 'description'
+        },
+        lighting: {
+          'item': 'description'
+        },
+        stage: {
+          'width': 'test width',
+          'height': 'test height'
+        }
+      }  
+    };
+
     authService.signup(user)
     .then( () => {
       $location.url('/dashboard');
 
-      venueService.createVenue(tempVenue);
+      return $q.resolve(venueService.createVenue(tempVenue));
+    })
+    .then( venueData => {
+      gearService.postGear(venueData, tempGear);
     });
-  }
+  };
 
 
   // this.venueCheck = function() {

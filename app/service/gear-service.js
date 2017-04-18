@@ -1,5 +1,5 @@
 'use strict';
- 
+
 module.exports = ['$q', '$log', '$http', 'authService', gearService];
 
 function gearService($q, $log, $http, authService) {
@@ -21,8 +21,9 @@ function gearService($q, $log, $http, authService) {
           'Content-Type': 'application/json'
         }
       };
+      console.log('config object:', config);
 
-      return $http.post(url, config, gearData)
+      return $http.post(url, gearData, config)
       .then( res => {
         service.userGear = res.data;
         return service.userGear;
