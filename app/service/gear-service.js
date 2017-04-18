@@ -8,12 +8,12 @@ function gearService($q, $log, $http, authService) {
   let service = {};
   service.userGear = {};
 
-  service.postGear = function(venueData, gearData) {
+  service.postGear = function(venueID, gearData) {
     $log.debug('gearService.postGear');
 
     return authService.getToken()
     .then( token => {
-      let url = `${process.env.__API_URL__}/api/venue/${venueData._id}/gear`;
+      let url = `${process.env.__API_URL__}/api/venue/${venueID}/gear`;
       let config = {
         headers: {
           Accept: 'application/json',
@@ -35,12 +35,12 @@ function gearService($q, $log, $http, authService) {
     });
   };
 
-  service.fetchGear = function(venueData) {
+  service.fetchGear = function(venueID) {
     $log.debug('gearService.fetchGear');
 
     return authService.getToken()
     .then( token => {
-      let url = `${process.env.__API_URL__}/api/venue/${venueData._id}/gear`;
+      let url = `${process.env.__API_URL__}/api/venue/${venueID}/gear`;
       let config = {
         headers: {
           Accept: 'application/json',
@@ -61,12 +61,12 @@ function gearService($q, $log, $http, authService) {
     });
   };
 
-  service.updateGear = function(venueData, gearData) {
+  service.updateGear = function(venueID, gearData) {
     $log.debug(gearService.updateGear);
 
     return authService.getToken()
     .then( token => {
-      let url = `${process.env.__API_URL__}/api/venue/${venueData._id}/gear/${gearData._id}`;
+      let url = `${process.env.__API_URL__}/api/venue/${venueID}/gear/${gearData._id}`;
       let config = {
         headers: {
           Accept: 'application/json',

@@ -1,12 +1,13 @@
 'use strict';
 
-module.exports = ['$q', '$log', '$http', 'authService', venueService];
+module.exports = ['$q', '$log', '$window', '$http', 'authService', venueService];
 
-function venueService($q, $log, $http, authService) {
+function venueService($q, $log, $window, $http, authService) {
   $log.debug('venueService');
 
   let service = {};
   service.venues = [];
+  service.currentVenue = {};
 
   service.createVenue = function(venue) {
     $log.debug('venueService.createVenue');
@@ -28,6 +29,7 @@ function venueService($q, $log, $http, authService) {
       $log.log('venue created');
       let venue = res.data;
       service.venues.unshift(venue);
+      $window.localStorage.currentVenue = venue._id;
       return venue;
     })
     .catch(err => {
@@ -36,8 +38,8 @@ function venueService($q, $log, $http, authService) {
     });
   };
 
-  service.fetchVenues = function() {
-    $log.debug('venueService.fetchVenues');
+  service.fetchAllVenues = function() {
+    $log.debug('venueService.fetchAllVenues');
 
     return authService.getToken()
     .then( token => {
@@ -53,6 +55,32 @@ function venueService($q, $log, $http, authService) {
     })
     .then( res => {
       $log.log('we got the venues bruh!');
+      service.venues = res.data;
+      return service.venues;
+    })
+    .catch( err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+  };
+
+  service.fetchOneVenue = function(venueID) {
+    $log.debug('venueService.fetchOneVenue');
+
+    return authService.getToken()
+    .then( token => {
+      let url = `${process.env.__API_URL__}/api/venue/${venueID}`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      };
+
+      return $http.get(url, config);
+    })
+    .then( res => {
+      $log.log('we got one venue bruh!');
       service.venues = res.data;
       return service.venues;
     })

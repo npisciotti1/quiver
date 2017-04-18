@@ -13,28 +13,29 @@ function SignupController($log, $q, $window, $location, authService, venueServic
     $location.url('/dashboard');
   });
 
+  let tempVenue = {
+    name: `venue no. ${Math.floor(Math.random() * 1000000)}`,
+    address: `${Math.floor(Math.random() * 1000000)}, main st.`
+  };
+
+  let tempGear = {
+    gear: {
+      audio: {
+        'item': 'description'
+      },
+      lighting: {
+        'item': 'description'
+      },
+      stage: {
+        'width': 'test width',
+        'height': 'test height'
+      }
+    }
+  };
+
   this.signup = function(user) {
     $log.debug('signupCtrl.signup()');
 
-    let tempVenue = {
-      name: `venue no. ${Math.floor(Math.random() * 1000000)}`,
-      address: `${Math.floor(Math.random() * 1000000)}, main st.`
-    };
-
-    let tempGear = {
-      gear: {
-        audio: {
-          'item': 'description'
-        },
-        lighting: {
-          'item': 'description'
-        },
-        stage: {
-          'width': 'test width',
-          'height': 'test height'
-        }
-      }  
-    };
 
     authService.signup(user)
     .then( () => {
@@ -43,7 +44,7 @@ function SignupController($log, $q, $window, $location, authService, venueServic
       return $q.resolve(venueService.createVenue(tempVenue));
     })
     .then( venueData => {
-      gearService.postGear(venueData, tempGear);
+      gearService.postGear(venueData._id, tempGear);
     });
   };
 
