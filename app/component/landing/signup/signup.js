@@ -17,19 +17,31 @@ function SignupController($log, $q, $window, $location, authService, venueServic
     name: `venue no. ${Math.floor(Math.random() * 1000000)}`,
     address: `${Math.floor(Math.random() * 1000000)}, main st.`
   };
-
+  
   let tempGear = {
     gear: {
-      audio: {
-        'item': 'description'
-      },
-      lighting: {
-        'item': 'description'
-      },
-      stage: {
-        'width': 'test width',
-        'height': 'test height'
-      }
+      audio: [
+        {
+          name: 'example instrument',
+          description: 'so cool instrument'
+        },
+      ],
+      lighting: [
+        {
+          name: 'sweet light',
+          description: 'this is bright'
+        }
+      ],
+      stage: [
+        {
+          name: 'width',
+          description: 'example width'
+        },
+        {
+          name: 'height',
+          description: 'example height'
+        }
+      ]
     }
   };
 
