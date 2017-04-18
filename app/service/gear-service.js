@@ -1,5 +1,5 @@
 'use strict';
-
+ 
 module.exports = ['$q', '$log', '$http', 'authService', gearService];
 
 function gearService($q, $log, $http, authService) {
