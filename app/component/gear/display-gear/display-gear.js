@@ -32,7 +32,6 @@ function DisplayGearController($log, $window, venueService, gearService) {
   this.arrayifyGear = function(obj) {
     if(!obj) return $log.error('didn\'t provide an object');
 
-    let keys = .keys()
     let result = [];
   }
 
