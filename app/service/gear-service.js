@@ -37,6 +37,8 @@ function gearService($q, $log, $http, authService) {
   service.fetchGear = function(venueID) {
     $log.debug('gearService.fetchGear');
 
+    if(service.userGear.audio) return $q.resolve(service.userGear);
+
     return authService.getToken()
     .then( token => {
       let url = `${process.env.__API_URL__}/api/venue/${venueID}/gear`;
