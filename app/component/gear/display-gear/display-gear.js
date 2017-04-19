@@ -21,12 +21,10 @@ function DisplayGearController($log, $window, venueService, gearService) {
     gearService.fetchGear($window.localStorage.currentVenue)
     .then( gearData => {
       this.gear = gearData;
-      this.gearArray = Object.values(this.gear);
 
-
-      this.audioArray = this.gearArray[0];
-      this.lightingArray = this.gearArray[1];
-      this.stageArray = this.gearArray[2];
+      this.audioArray = this.gear.audio;
+      this.lightingArray = this.gear.lighting;
+      this.stageArray = this.gear.stage;
     });
   };
 

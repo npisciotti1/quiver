@@ -6,6 +6,11 @@
   background-color: $site-primary;
   position: relative;
 
+  img {
+    width: 25%;
+    height: 100%;
+  }
+
   .bg-blue {
     background-color: $site-secondary;
     width: 97.5%;
