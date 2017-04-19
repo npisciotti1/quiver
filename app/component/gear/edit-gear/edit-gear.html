@@ -4,6 +4,13 @@
     ng-submit="editGearCtrl.updateGear()"
     no-validate>
 
+    <select name="" class="category">
+      <option value="">-- Select Category --</option>
+      <option ng-repeat="item in editGearCtrl.getCategories()"
+        value="{{ item }}">{{ item }}</option>
+    </select>
+
+
     <fieldset>
       <span class="gear-label">name:</span>
       <input name="name" class="input-std" ng-model="editGearCtrl.gear.gear">
