@@ -1,21 +1,8 @@
 <section class="edit-gear-section">
-  <form class="edit-gear"
-    name="editGear"
-    ng-submit="editGearCtrl.updateGear()"
-    no-validate>
-
-    <select name="" class="category">
-      <option value="">-- Select Category --</option>
-      <option ng-repeat="item in editGearCtrl.getCategories()"
-        value="{{ item }}">{{ item }}</option>
-    </select>
-
-
-    <fieldset>
-      <span class="gear-label">name:</span>
-      <input name="name" class="input-std" ng-model="editGearCtrl.gear.gear">
-    </fieldset>
-
-    <button class="btn-std">update</button>
-  </form>
+    <ul>
+      <li ng-repeat="item in editGearCtrl.gear">
+        <input ng-model="editGearCtrl.gear[item].name" class="name-field" placeholder="{{item.name}}"></input>
+        <input ng-model="editGearCtrl.gear[item].description" class="description-field" placeholder="{{item.description}}"></input>
+      </li>
+    </ul>
 </section>
