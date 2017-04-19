@@ -14,6 +14,7 @@ module.exports = {
 function DisplayGearController($log, $window, venueService, gearService) {
   $log.debug('DisplayGearController');
 
+  this.categories = [];
 
   this.populateTable = function() {
     $log.debug('DisplayGearController.getGear()');
@@ -28,12 +29,21 @@ function DisplayGearController($log, $window, venueService, gearService) {
     });
   };
 
+  this.showEdit = function() {
+    this.displayEdit = true;
+  };
+
+  this.hideEdit = function() {
+    this.displayEdit = false;
+  };
+
   this.showAudio = function() {
     $log.debug('DisplayGearController.showAudio()');
 
     this.displayAudio = true;
     this.displayLighting = false;
     this.displayStage = false;
+
   };
 
   this.showLighting = function() {
@@ -50,6 +60,35 @@ function DisplayGearController($log, $window, venueService, gearService) {
     this.displayAudio = false;
     this.displayLighting = false;
     this.displayStage = true;
+  };
+
+  this.getCategories = function() {
+    this.categories = Object.keys(this.gear);
+    return this.categories;
+  };
+
+  this.checkIfAudio = function(categoryStr) {
+    if( categoryStr === 'audio') return true;
+  };
+
+  this.checkIfLighting = function(categoryStr) {
+    if( categoryStr === 'lighting') return true;
+  };
+
+  this.checkIfStage = function(categoryStr) {
+    if( categoryStr === 'stage') return true;
+  };
+
+  this.updateGear = function() {
+    $log.debug('DisplayGearController.updateGear()');
+    this.hideEdit();
+
+    console.log('heres the this.gear', this.gear);
+
+    gearService.updateGear($window.localStorage.currentVenue, this.gear)
+    .then( () => {
+      console.log('gear successfully updated');
+    });
   };
 
   //set this to true to display audio table on page load
