@@ -21,8 +21,6 @@ function authService($q, $log, $http, $window) {
   service.getToken = function() {
     $log.debug('authService.getToken()');
 
-    console.log(1);
-
     if(token) return $q.resolve(token);
 
     token = $window.localStorage.token;

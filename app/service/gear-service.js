@@ -21,7 +21,6 @@ function gearService($q, $log, $http, authService) {
           'Content-Type': 'application/json'
         }
       };
-      console.log('config object:', config);
 
       return $http.post(url, gearData, config)
       .then( res => {
