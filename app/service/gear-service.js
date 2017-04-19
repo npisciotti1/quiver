@@ -1,8 +1,8 @@
 'use strict';
 
-module.exports = ['$q', '$log', '$http', 'authService', gearService];
+module.exports = ['$q', '$log', '$http', '$window', 'authService', gearService];
 
-function gearService($q, $log, $http, authService) {
+function gearService($q, $log, $http, $window, authService) {
   $log.debug('gearService');
 
   let service = {};
@@ -25,6 +25,7 @@ function gearService($q, $log, $http, authService) {
       return $http.post(url, gearData, config)
       .then( res => {
         service.userGear = res.data.gear;
+        $window.localStorage.gearID = res.data._id;
         return service.userGear;
       })
       .catch( err => {
@@ -76,7 +77,7 @@ function gearService($q, $log, $http, authService) {
         }
       };
 
-      return $http.put(url, config, gearData)
+      return $http.put(url, gearData, config)
       .then( res => {
         service.userGear = res.data;
         return service.userGear;

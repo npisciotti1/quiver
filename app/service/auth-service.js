@@ -33,6 +33,7 @@ function authService($q, $log, $http, $window) {
 
     delete $window.localStorage.token;
     delete $window.localStorage.currentVenue;
+    delete $window.localStorage.gearID;
     token = null;
     return $q.resolve();
   };
