@@ -1,11 +1,18 @@
 <section class="display-gear">
 
   <h2>Gear</h2>
-  <div class="table-wrapper" ng-if="!displayGearCtrl.displayEdit">
+  <div class="table-wrapper">
 
     <div name="audio" class="table-tab" ng-click="displayGearCtrl.showAudio()"><span>Audio</span></div>
     <div name="lighting" class="table-tab" ng-click="displayGearCtrl.showLighting()"><span>Lighting</span></div>
     <div name="stage" class="table-tab" ng-click="displayGearCtrl.showStage()"><span>Stage</span></div>
+
+    <!-- <table ng-repeat="category in displayGearCtrl.gearArray" name="category">
+      <tr ng-repeat="item in category">
+        <td> {{ item.name }} </td>
+        <td> {{ item.description }} </td>
+      </tr>
+    </table> -->
 
     <table name="audio" ng-if="displayGearCtrl.displayAudio">
       <tr ng-repeat="item in displayGearCtrl.gear.audio">
@@ -28,38 +35,6 @@
       </tr>
     </table>
   </div>
-
-  <button type="button" ng-click="displayGearCtrl.showEdit()" ng-if="!displayGearCtrl.displayEdit">Edit</button>
-
-  <section class="edit-wrapper" ng-if="displayGearCtrl.displayEdit">
-
-    <form class="edit-gear"
-    no-validate>
-
-      <edit-gear gear="displayGearCtrl.gear.audio" ng-if="displayGearCtrl.checkIfAudio(displayGearCtrl.selectedCategory)">
-
-      </edit-gear>
-
-      <edit-gear gear="displayGearCtrl.gear.lighting" ng-if="displayGearCtrl.checkIfLighting(displayGearCtrl.selectedCategory)">
-
-      </edit-gear>
-
-      <edit-gear gear="displayGearCtrl.gear.stage" ng-if="displayGearCtrl.checkIfStage(displayGearCtrl.selectedCategory)">
-
-      </edit-gear>
-
-      <select class="category"
-        ng-model="displayGearCtrl.selectedCategory">
-        <option value="">-- Select Category --</option>
-        <option ng-repeat="item in displayGearCtrl.getCategories()">{{ item }}</option>
-      </select>
-
-      <button ng-click="displayGearCtrl.updateGear(displayGearCtrl.gear)">Save</button>
-
-    </form>
-
-
-
-  </section>
-
 </section>
+
+<edit-gear gear=displayGearCtrl.gear></edit-gear>
