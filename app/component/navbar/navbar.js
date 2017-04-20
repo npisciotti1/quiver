@@ -43,15 +43,15 @@ function NavbarController($log, $location, $rootScope, authService) {
   this.routes = [
     {
       name: 'dashboard',
-      url: '/dashboard'
+      url: '/#!/dashboard'
     },
     {
       name: 'venues',
-      url: '/venues',
+      url: '/#!/venues',
     },
     {
       name: 'about',
-      url: '/about'
+      url: '/#!/about'
     }
   ];
 }
