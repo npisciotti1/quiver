@@ -1,0 +1,57 @@
+// @import '../../../scss/lib/vars';
+
+.display-gear {
+  float: right;
+  display: inline-block;
+  width: 40%;
+
+  h2 {
+    font-size: 6vw;
+  }
+
+  .table-wrapper {
+    border: 2px black solid;
+    border-radius: 5px;
+
+    .table-tab {
+      display: inline-block;
+      font-size: 3vw;
+      padding: .5vw;
+    }
+
+    .table-tab[name="audio"] {
+      background-color: rgba(157, 68, 68, .7);
+    }
+
+    .table-tab[name="lighting"] {
+      background-color: rgba(83, 119, 139, .7);
+    }
+
+    .table-tab[name="stage"] {
+      background-color: rgba(57, 86, 131, .7);
+    }
+
+    table {
+
+      tr {
+
+        td:first-child{
+          width: 48%;
+          border: 0 1% 1% 1% solid black;
+        }
+      }
+    }
+
+    table[name="audio"] {
+      background-color: rgba(157, 68, 68, .7);
+    }
+
+    table[name="lighting"] {
+      background-color: rgba(83, 119, 139, .7);
+    }
+
+    table[name="stage"] {
+      background-color: rgba(57, 86, 131, .7);
+    }
+  }
+}
