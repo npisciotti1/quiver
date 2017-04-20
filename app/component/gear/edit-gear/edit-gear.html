@@ -1,8 +1,14 @@
 <section class="edit-gear-section">
+  <form class="edit-gear"
+    no-validate
+    >
     <ul>
       <li ng-repeat="item in editGearCtrl.gear">
-        <input ng-model="editGearCtrl.gear[item.name].name" class="name-field" placeholder="{{item.name}}"></input>
-        <input ng-model="editGearCtrl.gear[item.description].description" class="description-field" placeholder="{{item.description}}"></input>
+        <input ng-model="item.name" class="name-field" placeholder="{{item.name}}"></input>
+        <input ng-model="item.description" class="description-field" placeholder="{{item.description}}"></input>
       </li>
     </ul>
+    <button type="button" ng-click="editGearCtrl.updateGear(editGearCtrl.gear)">Save(child)</button>
+
+  </form>
 </section>

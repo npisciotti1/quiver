@@ -22,10 +22,6 @@ function DisplayGearController($log, $window, venueService, gearService) {
     gearService.fetchGear($window.localStorage.currentVenue)
     .then( gearData => {
       this.gear = gearData;
-
-      this.audioArray = this.gear.audio;
-      this.lightingArray = this.gear.lighting;
-      this.stageArray = this.gear.stage;
     });
   };
 
@@ -86,8 +82,10 @@ function DisplayGearController($log, $window, venueService, gearService) {
     this.gear._id = $window.localStorage.gearID;
 
     gearService.updateGear($window.localStorage.currentVenue, this.gear)
-    .then( () => {
-      console.log('gear successfully updated');
+    .then( res => {
+      console.log('gear successfully updated, heres the res', res);
+      // this.gear = res.gear;
+      // gearService.userGear = res.gear;
     });
   };
 

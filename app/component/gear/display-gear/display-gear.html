@@ -33,33 +33,23 @@
 
   <section class="edit-wrapper" ng-if="displayGearCtrl.displayEdit">
 
-    <form class="edit-gear"
-    no-validate>
+    <edit-gear gear="displayGearCtrl.gear.audio" ng-if="displayGearCtrl.checkIfAudio(displayGearCtrl.selectedCategory)">
 
-      <edit-gear gear="displayGearCtrl.gear.audio" ng-if="displayGearCtrl.checkIfAudio(displayGearCtrl.selectedCategory)">
+    </edit-gear>
 
-      </edit-gear>
+    <edit-gear gear="displayGearCtrl.gear.lighting" ng-if="displayGearCtrl.checkIfLighting(displayGearCtrl.selectedCategory)">
 
-      <edit-gear gear="displayGearCtrl.gear.lighting" ng-if="displayGearCtrl.checkIfLighting(displayGearCtrl.selectedCategory)">
+    </edit-gear>
 
-      </edit-gear>
+    <edit-gear gear="displayGearCtrl.gear.stage" ng-if="displayGearCtrl.checkIfStage(displayGearCtrl.selectedCategory)">
 
-      <edit-gear gear="displayGearCtrl.gear.stage" ng-if="displayGearCtrl.checkIfStage(displayGearCtrl.selectedCategory)">
+    </edit-gear>
 
-      </edit-gear>
-
-      <select class="category"
-        ng-model="displayGearCtrl.selectedCategory">
-        <option value="">-- Select Category --</option>
-        <option ng-repeat="item in displayGearCtrl.getCategories()">{{ item }}</option>
-      </select>
-
-      <button ng-click="displayGearCtrl.updateGear(displayGearCtrl.gear)">Save</button>
-
-    </form>
-
-
-
+    <select class="category"
+      ng-model="displayGearCtrl.selectedCategory">
+      <option value="">-- Select Category --</option>
+      <option ng-repeat="item in displayGearCtrl.getCategories()">{{ item }}</option>
+    </select>
   </section>
 
 </section>
