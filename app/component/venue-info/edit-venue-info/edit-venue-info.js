@@ -21,11 +21,8 @@ function EditVenueInfoController($log, $window, venueService) {
     venueService.fetchOneVenue($window.localStorage.currentVenue)
     .then( venueObj => {
       console.log(venueObj);
-      venueObj.address = 'this is a totally cool address';
-      console.log(venueObj);
-      venueService.updateVenue($window.localStorage.currentVenue, venueObj);
-      console.log(venueObj);
+      console.log('venue', this.venue);
+      venueService.updateVenue(venueObj._id, this.venue);
     })
-    // venueService.updateVenue($window.localStorage.currentVenue, 'this is a totally cool address')
   }
 }

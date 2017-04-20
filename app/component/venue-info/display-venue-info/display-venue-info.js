@@ -25,7 +25,6 @@ function DisplayVenueInfoController($log, $window, venueService) {
       this.currentVenue = venue;
       this.address = venue.address;
       console.log(this.address);
-      // return this.address;
     });
   }
 
