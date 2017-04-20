@@ -2,9 +2,18 @@
   <h2>find a venue</h2>
   <input ng-model="venueSearchCtrl.venueSearchTerm"
   type="text" name="search-bar" placeholder="search venues">
-  <!-- TODO: build a div for filters/checkboxes -->
+  <div class="gallery-item-container">
+    <ul>
+      <gallery-item
+        ng-repeat="venue in venueSearchItemCtrl.allVenues | fuzzySearch: venueSearchCtrl.venueSearchTerm"
+        venue="item"
+        delete-done=""
+        ng-click="venueSearchCtrl.currentVenue = item">
+      </gallery-item>
+    </ul>
+  </div>
 
-  <!-- TODO: plug in our venue-search-item component -->
+  <venue-search-item></venue-search-item>
   <ul>
     <li></li>
   </ul>

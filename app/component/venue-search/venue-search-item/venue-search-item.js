@@ -8,5 +8,6 @@ module.exports = {
 
 function VenueSearchItemController($log, $q, venueService) {
   $log.debug('VenueSearchItemController');
-  
+
+  this.allVenues = {};
 }
