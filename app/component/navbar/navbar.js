@@ -13,7 +13,6 @@ function NavbarController($log, $location, $rootScope, authService) {
 
   this.checkPath = function() {
     let path = $location.path();
-    console.log('path checked, heres the path', path);
     if(path === '/join') {
       this.hideButtons = true;
     }
