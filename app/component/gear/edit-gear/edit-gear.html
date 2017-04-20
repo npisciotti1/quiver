@@ -7,8 +7,10 @@
     </ul>
 
     <div class="add-gear">
-      <input ng-model="editGearCtrl.newItem.name" type="text" placeholder="New Item">
-      <input ng-model="editGearCtrl.newItem.description" type="text" placeholder="Describe Your Item">
+      <input ng-model="editGearCtrl.newItem.name" class="name-field" placeholder="New Item">
+      <input ng-model="editGearCtrl.newItem.description" class="description-field" placeholder="Describe Your Item">
     </div>
     <button ng-click="editGearCtrl.bindNewGear(editGearCtrl.newItem.name, editGearCtrl.newItem.description)">Add</button>
+
+    <div name="vert-line"></div>
 </section>
