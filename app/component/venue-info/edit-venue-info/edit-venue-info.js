@@ -14,6 +14,12 @@ module.exports = {
 function EditVenueInfoController($log, $window, venueService) {
   $log.debug('EditVenueInfoController');
 
+  this.showForm = false;
+
+  this.edit = function() {
+    this.showForm = true;
+  }
+
   this.updateVenueInfo = function() {
     $log.debug('EditVenueInfoController.updateVenueInfo()');
 
@@ -23,6 +29,7 @@ function EditVenueInfoController($log, $window, venueService) {
       console.log(venueObj);
       console.log('venue', this.venue);
       venueService.updateVenue(venueObj._id, this.venue);
+      this.showForm = false;
     })
   }
 }

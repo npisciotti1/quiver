@@ -1,12 +1,17 @@
 <section class="edit-venue-info-section">
+
+  <button class="btn-std" type="button" name="button" ng-click="editVenueInfoCtrl.edit()"> Edit Address </button>
+
+
   <form class="edit-venue-info-form"
-    ng-submit="editVenueInfoCtrl.updateVenueInfo()">
+    ng-submit="editVenueInfoCtrl.updateVenueInfo()"
+    ng-if="editVenueInfoCtrl.showForm">
 
       <fieldset>
         <span class="item-label">name:</span>
         <input type="text" name="name" ng-model="editVenueInfoCtrl.venue.address" class="input-std">
       </fieldset>
 
-      <button type="submit" class="btn-std">update</button>
+      <button type="submit" class="btn-std">Save Changes</button>
   </form>
 </section>
