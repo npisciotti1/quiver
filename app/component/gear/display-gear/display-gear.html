@@ -49,8 +49,12 @@
         ng-if="displayGearCtrl.checkIfStage(displayGearCtrl.selectedCategory)">
       </edit-gear>
 
-      <div class="placeholder" ng-if="displayGearCtrl.showPlaceholder"></div>
-      
+      <div class="placeholder" ng-if="displayGearCtrl.showPlaceholder">
+        <p>Choose</p>
+        <p>  a    </p>
+        <p>    Category!</p>
+      </div>
+
       <select class="category"
       ng-model="displayGearCtrl.selectedCategory">
       <option value="">-- Select Category --</option>

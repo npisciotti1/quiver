@@ -9,6 +9,7 @@
 
   h2 {
     font-size: 6vw;
+    font-family: $font-std;
   }
 
   .table-wrapper {
@@ -81,6 +82,12 @@
     height: 20vw;
     border: 2px solid black;
     border-radius: 5px;
+
+    p {
+      font-size: 3vw;
+      font-family: $font-std;
+      text-align: center;
+    }
   }
 }
 
