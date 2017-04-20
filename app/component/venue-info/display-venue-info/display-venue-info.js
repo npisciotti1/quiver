@@ -4,23 +4,25 @@ require('./_display-venue-info.scss');
 
 module.exports = {
   template: require('./display-venue-info.html'),
-  controller: ['$log', '$window', 'venueService', DiaplayVenueInfoController],
+  controller: ['$log', '$window', 'venueService', DisplayVenueInfoController],
   controllerAs: 'displayVenueInfoCtrl',
   bindings: {
     venue: '<'
   }
 };
 
-function DiaplayVenueInfoController($log, $window, venueService) {
-  $log.debug('DiaplayVenueInfoController');
+function DisplayVenueInfoController($log, $window, venueService) {
+  $log.debug('DisplayVenueInfoController');
 
   this.address = '';
+  this.currentVenue = {};
 
   this.getProfileInfo = function() {
-    $log.debug('DiaplayVenueInfoController.getProfileInfo()');
+    $log.debug('DisplayVenueInfoController.getProfileInfo()');
 
     venueService.fetchOneVenue($window.localStorage.currentVenue)
     .then( venue => {
+      this.currentVenue = venue;
       this.address = venue.address;
       console.log(this.address);
       // return this.address;
