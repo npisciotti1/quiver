@@ -18,8 +18,8 @@ function routeConfig($stateProvider, $urlRouterProvider) {
       controllerAs: 'dashboardCtrl'
     },
     {
-      name: 'venue-search',
-      url: '/venue-search',
+      name: 'search',
+      url: '/search',
       template: require('../view/venue-search/venue-search.html'),
       controller: 'VenueSearchController',
       controllerAs: 'venueSearchCtrl'
@@ -35,9 +35,10 @@ function routeConfig($stateProvider, $urlRouterProvider) {
       name: 'public',
       url: '/public',
       template: require('../view/public/public-dashboard/public-dashboard.html'),
-      controller: 'public-dashboard-controller',
-      controllerAs: 'publicDashboardCtrl'
+      controller: 'publicDashboardController',
+      controllerAs: 'PublicDashboardCtrl'
     }
+
   ];
 
   states.forEach( state => {
