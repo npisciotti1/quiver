@@ -54,7 +54,8 @@ function venueService($q, $log, $window, $http, authService) {
     })
     .then( res => {
       $log.log('we got the venues bruh!');
-      service.venues.push(res.data);
+      service.venues = res.data;
+      console.log('res.data:', res.data);
       return service.venues;
     })
     .catch( err => {

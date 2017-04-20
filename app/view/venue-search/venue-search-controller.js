@@ -11,7 +11,7 @@ function VenueSearchController($log, $q, authService, venueService) {
     venueService.fetchAllVenues()
     .then( venues => {
       this.allVenues = venues;
-      console.log(venues);
+      console.log(this.allVenues);
     });
   }
 
