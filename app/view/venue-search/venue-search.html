@@ -1,20 +1,21 @@
 <section class="venue-search">
   <h2>find a venue</h2>
+
   <input ng-model="venueSearchCtrl.venueSearchTerm"
-  type="text" name="search-bar" placeholder="search venues">
-  <div class="gallery-item-container">
+    type="text" name="search-bar" placeholder="search venues">
+
+  <div class="venue-item-container">
     <ul>
-      <gallery-item
-        ng-repeat="venue in venueSearchItemCtrl.allVenues | fuzzySearch: venueSearchCtrl.venueSearchTerm"
+      <li
+        ng-repeat="venue in venueSearchCtrl.allVenues | fuzzySearch: venueSearchCtrl.venueSearchTerm"
         venue="item"
         delete-done=""
-        ng-click="venueSearchCtrl.currentVenue = item">
-      </gallery-item>
+        ng-click="venueSearchCtrl.currentVenue = venue">
+
+          {{venue.name}}
+      </li>
     </ul>
   </div>
 
-  <venue-search-item></venue-search-item>
-  <ul>
-    <li></li>
-  </ul>
+  <!-- <search-item></search-item> -->
 </section>
