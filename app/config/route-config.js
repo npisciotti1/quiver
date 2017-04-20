@@ -30,6 +30,13 @@ function routeConfig($stateProvider, $urlRouterProvider) {
       template: require('../view/landing/landing.html'),
       controller: 'LandingController',
       controllerAs: 'landingCtrl'
+    },
+    {
+      name: 'public',
+      url: '/public',
+      template: require('../view/public/public-dashboard/public-dashboard.html'),
+      controller: 'public-dashboard-controller',
+      controllerAs: 'publicDashboardCtrl'
     }
   ];
 
