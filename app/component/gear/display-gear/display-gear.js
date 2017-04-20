@@ -83,7 +83,7 @@ function DisplayGearController($log, $window, venueService, gearService) {
     $log.debug('DisplayGearController.updateGear()');
     this.hideEdit();
 
-    console.log('heres the this.gear', this.gear);
+    this.gear._id = $window.localStorage.gearID;
 
     gearService.updateGear($window.localStorage.currentVenue, this.gear)
     .then( () => {

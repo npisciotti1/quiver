@@ -15,21 +15,21 @@
     </table> -->
 
     <table name="audio" ng-if="displayGearCtrl.displayAudio">
-      <tr ng-repeat="item in displayGearCtrl.audioArray">
+      <tr ng-repeat="item in displayGearCtrl.gear.audio">
         <td> {{ item.name }} </td>
         <td> {{ item.description }} </td>
       </tr>
     </table>
 
     <table name="lighting" ng-if="displayGearCtrl.displayLighting">
-      <tr ng-repeat="item in displayGearCtrl.lightingArray">
+      <tr ng-repeat="item in displayGearCtrl.gear.lighting">
         <td> {{ item.name }} </td>
         <td> {{ item.description }} </td>
       </tr>
     </table>
 
     <table name="stage" ng-if="displayGearCtrl.displayStage">
-      <tr ng-repeat="item in displayGearCtrl.stageArray">
+      <tr ng-repeat="item in displayGearCtrl.gear.stage">
         <td> {{ item.name }} </td>
         <td> {{ item.description }} </td>
       </tr>
