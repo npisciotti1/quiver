@@ -16,6 +16,7 @@
     border-radius: 5px;
 
     .table-tab {
+      font-family: $font-std;
       display: inline-block;
       font-size: 3vw;
       padding: .5vw;
@@ -74,7 +75,15 @@
       width: 100%;
     }
   }
+
+  .placeholder {
+    background-color: white;
+    height: 20vw;
+    border: 2px solid black;
+    border-radius: 5px;
+  }
 }
+
 
 .clearfix {
   clear: both;
