@@ -27,10 +27,11 @@ function venueService($q, $log, $window, $http, authService) {
     })
     .then( res => {
       $log.log('venue created');
-      let venue = res.data;
-      service.venues.unshift(venue);
-      $window.localStorage.currentVenue = venue._id;
-      return venue;
+      let newVenue = res.data;
+      // service.venues.push(newVenue);
+      console.log('heres our venues in the service layer', service.venues);
+      $window.localStorage.currentVenue = newVenue._id;
+      return newVenue;
     })
     .catch(err => {
       $log.error(err.message);
@@ -55,7 +56,7 @@ function venueService($q, $log, $window, $http, authService) {
     })
     .then( res => {
       $log.log('we got the venues bruh!');
-      service.venues = res.data;
+      service.venues.push(res.data);
       return service.venues;
     })
     .catch( err => {
@@ -81,7 +82,7 @@ function venueService($q, $log, $window, $http, authService) {
     })
     .then( res => {
       $log.log('we got one venue bruh!');
-      service.venues = res.data;
+      service.venues.push(res.data);
       return service.venues;
     })
     .catch( err => {

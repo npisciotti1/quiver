@@ -4,16 +4,16 @@
   float: right;
   display: inline-block;
   width: 35.3vw;
+  overflow: scroll;
 
 
   h2 {
-    font-size: 5vw;
+    font-size: 6vw;
   }
 
   .table-wrapper {
     border: 2px black solid;
     border-radius: 5px;
-    overflow: scroll;
 
     .table-tab {
       display: inline-block;
