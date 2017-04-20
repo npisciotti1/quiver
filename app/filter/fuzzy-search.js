@@ -4,7 +4,6 @@ module.exports = function() {
   return function(venues, searchTerm) {
 
     let fuzzyRegex = generateFuzzyRegex(searchTerm);
-
     return venues.filter( venue  => {
       return fuzzyRegex.test( venue.name.toUpperCase());
     });
