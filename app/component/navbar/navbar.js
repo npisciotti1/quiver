@@ -13,6 +13,7 @@ function NavbarController($log, $location, $rootScope, authService) {
 
   this.checkPath = function() {
     let path = $location.path();
+    console.log('path checked, heres the path', path);
     if(path === '/join') {
       this.hideButtons = true;
     }
@@ -43,15 +44,15 @@ function NavbarController($log, $location, $rootScope, authService) {
   this.routes = [
     {
       name: 'dashboard',
-      url: '/dashboard'
+      url: '/#!/dashboard'
     },
     {
-      name: 'venues',
-      url: '/venues',
+      name: 'search',
+      url: '/#!/search',
     },
     {
       name: 'about',
-      url: '/about'
+      url: '/#!/about'
     }
   ];
 }
