@@ -89,32 +89,14 @@ function DisplayGearController($log, $window, venueService, gearService) {
 
     this.gear._id = $window.localStorage.gearID;
 
-    gearService.updateGear($window.localStorage.currentVenue, this.gear)
+    //had to add this so mongo recognizes what we're attempting to update
+    let payload = { gear: this.gear};
+
+    gearService.updateGear($window.localStorage.currentVenue, payload)
     .then( (res) => {
       console.log('gear successfully updated heres the res', res);
     });
   };
-
-  // this.bindNewGear = function(name, description) {
-  //   let newItem = {name: name, description: description};
-  //
-  //   console.log('binding new object,', newItem);
-  //
-  //   if(this.checkIfAudio(this.selectedCategory)) {
-  //     this.gear.audio.push(newItem);
-  //     return;
-  //   }
-  //
-  //   if(this.checkIfLighting(this.selectedCategory)) {
-  //     this.gear.lighting.push(newItem);
-  //     return;
-  //   }
-  //
-  //   if(this.checkIfStage(this.selectedCategory)) {
-  //     this.gear.stage.push(newItem);
-  //     return;
-  //   }
-  // };
 
   //set this to true to display audio table on page load
   this.displayAudio = true;
