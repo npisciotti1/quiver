@@ -3,28 +3,37 @@
 .display-gear {
   float: right;
   display: inline-block;
-  width: 40%;
+  width: 35.3vw;
+
 
   h2 {
-    font-size: 6vw;
+    font-size: 5vw;
   }
 
   .table-wrapper {
     border: 2px black solid;
     border-radius: 5px;
+    overflow: scroll;
 
     .table-tab {
       display: inline-block;
       font-size: 3vw;
       padding: .5vw;
+      margin: none;
+      // width: 30.15%;
+      width: 10.54vw;
+      border-bottom: 2px solid black;
+      float: left;
     }
 
     .table-tab[name="audio"] {
       background-color: rgba(157, 68, 68, .7);
+      border-right: 2px solid black;
     }
 
     .table-tab[name="lighting"] {
       background-color: rgba(83, 119, 139, .7);
+      border-right: 2px solid black;
     }
 
     .table-tab[name="stage"] {
@@ -32,26 +41,43 @@
     }
 
     table {
+      height: 20vw;
 
       tr {
+        width: 100%;
 
         td:first-child{
-          width: 48%;
-          border: 0 1% 1% 1% solid black;
+          width: 32.5%;
+          border-bottom: 2px solid black;
+          border-right: 2px solid black;
+        }
+
+        td:nth-child(2){
+          width: 65%;
+          border-bottom: 2px solid black;
         }
       }
     }
 
     table[name="audio"] {
       background-color: rgba(157, 68, 68, .7);
+      width: 100%;
     }
 
     table[name="lighting"] {
       background-color: rgba(83, 119, 139, .7);
+      width: 100%;
     }
 
     table[name="stage"] {
       background-color: rgba(57, 86, 131, .7);
+      width: 100%;
     }
   }
+}
+
+.clearfix {
+  clear: both;
+  height: 0;
+  width: 100%;
 }

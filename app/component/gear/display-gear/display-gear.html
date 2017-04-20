@@ -7,6 +7,8 @@
     <div name="lighting" class="table-tab" ng-click="displayGearCtrl.showLighting()"><span>Lighting</span></div>
     <div name="stage" class="table-tab" ng-click="displayGearCtrl.showStage()"><span>Stage</span></div>
 
+    <div class="clearfix"></div>
+
     <table name="audio" ng-if="displayGearCtrl.displayAudio">
       <tr ng-repeat="item in displayGearCtrl.gear.audio">
         <td> {{ item.name }} </td>
@@ -47,6 +49,9 @@
         ng-if="displayGearCtrl.checkIfStage(displayGearCtrl.selectedCategory)">
       </edit-gear>
 
+      <div class="placeholder" ng-if="displayGearCtrl.showPlaceholder">
+        <p>itworkedddd</p>
+      </div>
       <select class="category"
       ng-model="displayGearCtrl.selectedCategory">
       <option value="">-- Select Category --</option>

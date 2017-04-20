@@ -27,6 +27,7 @@ function DisplayGearController($log, $window, venueService, gearService) {
   };
 
   this.showEdit = function() {
+    this.showPlaceholder = true;
     this.displayEdit = true;
   };
 
@@ -40,7 +41,6 @@ function DisplayGearController($log, $window, venueService, gearService) {
     this.displayAudio = true;
     this.displayLighting = false;
     this.displayStage = false;
-
   };
 
   this.showLighting = function() {
@@ -72,15 +72,24 @@ function DisplayGearController($log, $window, venueService, gearService) {
   };
 
   this.checkIfAudio = function(categoryStr) {
-    if( categoryStr === 'audio') return true;
+    if( categoryStr === 'audio') {
+      this.showPlaceholder = false;
+      return true;
+    }
   };
 
   this.checkIfLighting = function(categoryStr) {
-    if( categoryStr === 'lighting') return true;
+    if( categoryStr === 'lighting') {
+      this.showPlaceholder = false;
+      return true;
+    }
   };
 
   this.checkIfStage = function(categoryStr) {
-    if( categoryStr === 'stage') return true;
+    if( categoryStr === 'stage') {
+      this.showPlaceholder = false;
+      return true;
+    }
   };
 
   this.updateGear = function() {
@@ -90,11 +99,11 @@ function DisplayGearController($log, $window, venueService, gearService) {
     this.gear._id = $window.localStorage.gearID;
 
     //had to add this so mongo recognizes what we're attempting to update
-    let payload = { gear: this.gear};
+    let payload = {gear: this.gear};
 
     gearService.updateGear($window.localStorage.currentVenue, payload)
-    .then( (res) => {
-      console.log('gear successfully updated heres the res', res);
+    .then( () => {
+      console.log('gear successfully updated');
     });
   };
 
