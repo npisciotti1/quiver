@@ -3,8 +3,8 @@
 require('./_public-dashboard.scss');
 
 //TODO: Build out our home view as we add functionality
-module.exports = ['$log', DashboardController];
+module.exports = ['$log', PublicDashboardController];
 
-function DashboardController($log) {
+function PublicDashboardController($log) {
   $log.debug('DashboardController');
 }
