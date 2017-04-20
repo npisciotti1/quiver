@@ -24,4 +24,12 @@ function EditGearController($log, $window, venueService, gearService) {
       console.log('gear successfully updated');
     });
   };
+
+  this.bindNewGear = function(name, description) {
+    let newItem = {name: name, description: description};
+    console.log('binding new object,', newItem);
+
+    this.gear.push(newItem);
+
+  };
 }

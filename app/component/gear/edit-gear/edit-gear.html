@@ -5,5 +5,10 @@
         <input ng-model="item.description" class="description-field" placeholder="{{item.description}}"></input>
       </li>
     </ul>
-    
+
+    <div class="add-gear">
+      <input ng-model="editGearCtrl.newItem.name" type="text" placeholder="New Item">
+      <input ng-model="editGearCtrl.newItem.description" type="text" placeholder="Describe Your Item">
+    </div>
+    <button ng-click="editGearCtrl.bindNewGear(editGearCtrl.newItem.name, editGearCtrl.newItem.description)">Add</button>
 </section>
