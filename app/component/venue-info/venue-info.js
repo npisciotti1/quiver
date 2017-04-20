@@ -22,7 +22,10 @@ function VenueInfoController($log, $window, venueService) {
     venueService.fetchOneVenue($window.localStorage.currentVenue)
     .then( venue => {
       this.address = venue.address;
-      return this.address;
+      console.log(this.address);
+      // return this.address;
     });
   }
+
+  this.getProfileInfo();
 }
