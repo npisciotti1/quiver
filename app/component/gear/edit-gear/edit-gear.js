@@ -4,14 +4,24 @@ require('./_edit-gear.scss');
 
 module.exports = {
   template: require('./edit-gear.html'),
-  controller: ['$log', 'venueService', 'gearService', EditGearController],
+  controller: ['$log', '$window', 'venueService', 'gearService', EditGearController],
   controllerAs: 'editGearCtrl',
   bindings: {
     gear: '<'
   }
 };
 
-function EditGearController($log, venueService, gearService) {
+function EditGearController($log, $window, venueService, gearService) {
   $log.debug('EditGearController');
 
+  this.updateGear = function() {
+    $log.debug('EditGearController.updateGear()');
+
+    this.gear._id = $window.localStorage.gearID;
+
+    gearService.updateGear($window.localStorage.currentVenue, this.gear)
+    .then( () => {
+      console.log('gear successfully updated');
+    });
+  };
 }
