@@ -28,8 +28,6 @@ function venueService($q, $log, $window, $http, authService) {
     .then( res => {
       $log.log('venue created');
       let newVenue = res.data;
-      // service.venues.push(newVenue);
-      console.log('heres our venues in the service layer', service.venues);
       $window.localStorage.currentVenue = newVenue._id;
       return newVenue;
     })
