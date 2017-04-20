@@ -32,24 +32,44 @@
   <button type="button" ng-click="displayGearCtrl.showEdit()" ng-if="!displayGearCtrl.displayEdit">Edit</button>
 
   <section class="edit-wrapper" ng-if="displayGearCtrl.displayEdit">
+    <form novalidate>
 
-    <edit-gear gear="displayGearCtrl.gear.audio" ng-if="displayGearCtrl.checkIfAudio(displayGearCtrl.selectedCategory)">
+      <edit-gear gear="displayGearCtrl.gear.audio"
+        ng-if="displayGearCtrl.checkIfAudio(displayGearCtrl.selectedCategory)">
+      </edit-gear>
+      <div class="add-gear" ng-submit="displayGearCtrl.bindNewGear(displayGearCtrl.newItem.name, displayGearCtrl.newItem.description)"
+        ng-if="displayGearCtrl.checkIfAudio(displayGearCtrl.selectedCategory)">
+        <input ng-model="displayGearCtrl.newItem.name" type="text" placeholder="New Item">
+        <input ng-model="displayGearCtrl.newItem.description" type="text" placeholder="Describe Your Item">
+      </div>
 
-    </edit-gear>
+      <edit-gear gear="displayGearCtrl.gear.lighting"
+       ng-if="displayGearCtrl.checkIfLighting(displayGearCtrl.selectedCategory)">
+      </edit-gear>
+      <!-- <div class="add-gear" ng-change="displayGearCtrl.bindNewGear(displayGearCtrl.newItem.name, displayGearCtrl.newItem.description)"
+        ng-if="displayGearCtrl.checkIfLighting(displayGearCtrl.selectedCategory)">
+        <input ng-model="displayGearCtrl.newItem.name" type="text" placeholder="New Item">
+        <input ng-model="displayGearCtrl.newItem.description" type="text" placeholder="Describe Your Item">
+      </div> -->
 
-    <edit-gear gear="displayGearCtrl.gear.lighting" ng-if="displayGearCtrl.checkIfLighting(displayGearCtrl.selectedCategory)">
+      <edit-gear gear="displayGearCtrl.gear.stage"
+        ng-if="displayGearCtrl.checkIfStage(displayGearCtrl.selectedCategory)">
+      </edit-gear>
+      <!-- <div class="add-gear" ng-change="displayGearCtrl.bindNewGear(displayGearCtrl.newItem.name, displayGearCtrl.newItem.description)"
+        ng-if="displayGearCtrl.checkIfStage(displayGearCtrl.selectedCategory)">
+        <input ng-model="displayGearCtrl.newItem.name" type="text" placeholder="New Item">
+        <input ng-model="displayGearCtrl.newItem.description" type="text" placeholder="Describe Your Item">
+      </div> -->
 
-    </edit-gear>
-
-    <edit-gear gear="displayGearCtrl.gear.stage" ng-if="displayGearCtrl.checkIfStage(displayGearCtrl.selectedCategory)">
-
-    </edit-gear>
-
-    <select class="category"
+      <select class="category"
       ng-model="displayGearCtrl.selectedCategory">
       <option value="">-- Select Category --</option>
       <option ng-repeat="item in displayGearCtrl.getCategories()">{{ item }}</option>
     </select>
+
+    <button type="button" ng-click="displayGearCtrl.updateGear(displayGearCtrl.gear)">Save</button>
+
+    </form>
   </section>
 
 </section>

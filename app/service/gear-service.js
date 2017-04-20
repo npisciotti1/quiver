@@ -52,7 +52,7 @@ function gearService($q, $log, $http, $window, authService) {
 
       return $http.get(url, config)
       .then( res => {
-        $log.log('gear was fetched');
+        $log.log('gear was fetched heres the res.data', res.data);
         service.userGear = res.data.gear;
         return service.userGear;
       })
