@@ -40,10 +40,6 @@ function NavbarController($log, $location, $rootScope, authService) {
     });
   };
 
-  this.loadImage = function(image) {
-    return require('/images/' + image);
-  };
-
   this.routes = [
     {
       name: 'dashboard',
