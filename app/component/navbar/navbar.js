@@ -42,15 +42,15 @@ function NavbarController($log, $location, $rootScope, authService) {
 
   this.routes = [
     {
-      name: 'dashboard',
+      name: 'Dashboard',
       url: '/#!/dashboard'
     },
     {
-      name: 'search',
+      name: 'Search',
       url: '/#!/search',
     },
     {
-      name: 'about',
+      name: 'About',
       url: '/#!/about'
     }
   ];
