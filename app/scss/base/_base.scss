@@ -9,9 +9,8 @@ html body {
 main{
   max-width: 960px;
   width: 90%;
-  margin: 0 5%;
-  //TODO: remove this rule, it's for the "under construction page"
-  height: 600px;
+  margin: 5% 5%;
+  min-height: 750px;
 }
 
 footer {
