@@ -22,9 +22,9 @@ function PublicDisplayVenueInfoController($log, $window, venueService) {
 
     venueService.fetchOneVenue($window.localStorage.currentVenue)
     .then( venue => {
+      console.log(venue.address);
       this.currentVenue = venue;
       this.address = venue.address;
-      console.log(this.address);
     });
   }
 
