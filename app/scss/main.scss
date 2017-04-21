@@ -6,11 +6,43 @@
 // :::: Base Styles :::: //
 
 @import '/base/base';
+@import '/base/header';
 
 // :::: move this shit at some point :::: //
 
 * {
   font-family: $font-std;
+}
+
+.venue-search {
+  h2 {
+    font-size: 4vw;
+    text-decoration: underline;
+    margin-bottom: 5vw;
+  }
+}
+
+h2.public-title {
+  border: 1px solid #444;
+  width: auto;
+  display: inline-block;
+  padding: 1vw;
+  background: #fff;
+  border-radius: 3px;
+  margin-bottom: 2vw;
+}
+
+.venue-item-container {
+  ul {
+    li {
+      margin-bottom: 1vw;
+      font-size: 2vw;
+      /* text-decoration: underline; */
+      list-style-type: circle;
+      margin-left: 2vw;
+      padding-top: 1vw;
+    }
+  }
 }
 
 input[type="text"], input[type="password"], input[type="email"] {
@@ -83,7 +115,6 @@ input[type="submit"] {
     &:hover {
       color: $site-primary;
       cursor: pointer;
-      font-style: italic;
     }
   }
 }
