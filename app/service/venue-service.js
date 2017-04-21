@@ -40,18 +40,14 @@ function venueService($q, $log, $window, $http, authService) {
   service.fetchAllVenues = function() {
     $log.debug('venueService.fetchAllVenues');
 
-    return authService.getToken()
-    .then( token => {
-      let url = `${process.env.__API_URL__}/api/venue`;
-      let config = {
-        headers: {
-          Accept: 'application/json',
-          Authorization: `Bearer ${token}`
-        }
-      };
+    let url = `${process.env.__API_URL__}/api/venue`;
+    let config = {
+      headers: {
+        Accept: 'application/json'
+      }
+    };
 
-      return $http.get(url, config);
-    })
+    return $http.get(url, config)
     .then( res => {
       $log.log('we got the venues bruh!');
       service.venues = res.data;
@@ -67,18 +63,13 @@ function venueService($q, $log, $window, $http, authService) {
   service.fetchOneVenue = function(venueID) {
     $log.debug('venueService.fetchOneVenue');
 
-    return authService.getToken()
-    .then( token => {
-      let url = `${process.env.__API_URL__}/api/venue/${venueID}`;
-      let config = {
-        headers: {
-          Accept: 'application/json',
-          Authorization: `Bearer ${token}`
-        }
-      };
-
-      return $http.get(url, config);
-    })
+    let url = `${process.env.__API_URL__}/api/venue/${venueID}`;
+    let config = {
+      headers: {
+        Accept: 'application/json'
+      }
+    };
+    return $http.get(url, config)
     .then( res => {
       $log.log('we got one venue bruh!');
       service.venues = res.data;
