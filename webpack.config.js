@@ -51,6 +51,10 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader?sourceMap'])
+      },
+      {
+        test: /\.(jpg|jpeg|svg|bmp|gif|png)$/,
+        loader: 'file-loader'
       }
     ]
   }
