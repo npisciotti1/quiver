@@ -37,6 +37,13 @@ function routeConfig($stateProvider, $urlRouterProvider) {
       template: require('../view/public/public-dashboard/public-dashboard.html'),
       controller: 'publicDashboardController',
       controllerAs: 'PublicDashboardCtrl'
+    },
+    {
+      name: 'about',
+      url: '/about',
+      template: require('../view/about/about.html'),
+      controller: 'AboutController',
+      controllerAs: 'aboutCtrl'
     }
 
   ];
