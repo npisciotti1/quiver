@@ -1,0 +1,16 @@
+<section class="edit-gear-section">
+    <ul>
+      <li ng-repeat="item in editGearCtrl.gear">
+        <input ng-model="item.name" class="name-field" placeholder="{{item.name}}"></input>
+        <input ng-model="item.description" class="description-field" placeholder="{{item.description}}"></input>
+      </li>
+    </ul>
+
+    <div class="add-gear">
+      <input ng-model="editGearCtrl.newItem.name" class="name-field" placeholder="New Item">
+      <input ng-model="editGearCtrl.newItem.description" class="description-field" placeholder="Describe Your Item">
+    </div>
+    <button ng-click="editGearCtrl.bindNewGear(editGearCtrl.newItem.name, editGearCtrl.newItem.description)">Add</button>
+
+    <div name="vert-line"></div>
+</section>

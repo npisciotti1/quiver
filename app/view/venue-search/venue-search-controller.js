@@ -1,13 +1,19 @@
 'use strict';
 
-module.exports = {
-  template: require('./venue-search.html'),
-  controller: ['$log', '$q', 'authService', 'venueService', VenueSearchController],
-  controllerAs: 'venueSearchCtrl'
-};
+module.exports = ['$log', '$q', 'authService', 'venueService', VenueSearchController];
 
 function VenueSearchController($log, $q, authService, venueService) {
   $log.debug('VenueSearchController');
 
-  //TODO: configure this controller to grab array of venues from venue service
+  this.allVenues = [];
+
+  this.getAllVenues = function() {
+    venueService.fetchAllVenues()
+    .then( venues => {
+      this.allVenues = venues;
+      console.log(this.allVenues);
+    });
+  }
+
+  this.getAllVenues();
 }

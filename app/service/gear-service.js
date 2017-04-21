@@ -1,19 +1,19 @@
 'use strict';
 
-module.exports = ['$q', '$log', '$http', 'authService', gearService];
+module.exports = ['$q', '$log', '$http', '$window', 'authService', gearService];
 
-function gearService($q, $log, $http, authService) {
+function gearService($q, $log, $http, $window, authService) {
   $log.debug('gearService');
 
   let service = {};
   service.userGear = {};
 
-  service.postGear = function(venueData, gearData) {
+  service.postGear = function(venueID, gearData) {
     $log.debug('gearService.postGear');
 
     return authService.getToken()
     .then( token => {
-      let url = `${process.env.__API_URL__}/api/venue/${venueData._id}/gear`;
+      let url = `${process.env.__API_URL__}/api/venue/${venueID}/gear`;
       let config = {
         headers: {
           Accept: 'application/json',
@@ -22,9 +22,10 @@ function gearService($q, $log, $http, authService) {
         }
       };
 
-      return $http.post(url, config, gearData)
+      return $http.post(url, gearData, config)
       .then( res => {
-        service.userGear = res.data;
+        service.userGear = res.data.gear;
+        $window.localStorage.gearID = res.data._id;
         return service.userGear;
       })
       .catch( err => {
@@ -34,12 +35,14 @@ function gearService($q, $log, $http, authService) {
     });
   };
 
-  service.fetchGear = function(venueData) {
+  service.fetchGear = function(venueID) {
     $log.debug('gearService.fetchGear');
+
+    if(service.userGear.audio) return $q.resolve(service.userGear);
 
     return authService.getToken()
     .then( token => {
-      let url = `${process.env.__API_URL__}/api/venue/${venueData._id}/gear`;
+      let url = `${process.env.__API_URL__}/api/venue/${venueID}/gear`;
       let config = {
         headers: {
           Accept: 'application/json',
@@ -49,8 +52,8 @@ function gearService($q, $log, $http, authService) {
 
       return $http.get(url, config)
       .then( res => {
-        $log.log('gear was fetched');
-        service.userGear = res.data;
+        $log.log('gear was fetched heres the res.data', res.data);
+        service.userGear = res.data.gear;
         return service.userGear;
       })
       .catch( err => {
@@ -60,12 +63,13 @@ function gearService($q, $log, $http, authService) {
     });
   };
 
-  service.updateGear = function(venueData, gearData) {
+  service.updateGear = function(venueID, gearData) {
     $log.debug(gearService.updateGear);
 
+    console.log('heres the gearData', gearData);
     return authService.getToken()
     .then( token => {
-      let url = `${process.env.__API_URL__}/api/venue/${venueData._id}/gear/${gearData._id}`;
+      let url = `${process.env.__API_URL__}/api/venue/${venueID}/gear/${gearData.gear._id}`;
       let config = {
         headers: {
           Accept: 'application/json',
@@ -74,7 +78,7 @@ function gearService($q, $log, $http, authService) {
         }
       };
 
-      return $http.put(url, config, gearData)
+      return $http.put(url, gearData, config)
       .then( res => {
         service.userGear = res.data;
         return service.userGear;

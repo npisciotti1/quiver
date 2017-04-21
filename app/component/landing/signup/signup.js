@@ -2,38 +2,123 @@
 
 module.exports = {
   template: require('./signup.html'),
-  controller: ['$log', '$location', 'authService', SignupController],
+  controller: ['$log', '$q', '$window', '$location', 'authService', 'venueService', 'gearService', SignupController],
   controllerAs: 'signupCtrl'
 };
 
-function SignupController($log, $location, authService) {
+function SignupController($log, $q, $window, $location, authService, venueService, gearService) {
   $log.debug('SignupController');
   authService.getToken()
   .then( () => {
-    $location.url('.home');
+    $location.url('/dashboard');
   });
+
+  let tempVenue = {
+    name: `venue no. ${Math.floor(Math.random() * 1000000)}`,
+    address: `${Math.floor(Math.random() * 1000000)}, main st.`
+  };
+
+  let tempGear = {
+    gear: {
+      audio: [
+        {
+          name: 'FOH Console',
+          description: 'Venue SC48 Digital Protools console'
+        },
+        {
+          name: 'FOH Speakers',
+          description: '(10) JBL VTX V20 – LINE ARRAYED'
+        },
+        {
+          name: 'FOH Speakers',
+          description: '(4) JBL AC28 Fills'
+        },
+        {
+          name: '5-Piece Kit',
+          description: 'Pearl - Session Studio Classic'
+        },
+        {
+          name: 'Deluxe Strat',
+          description: 'Play like Jimi!'
+        },
+        {
+          name: 'Mics',
+          description: '(2) Shure Beta 91A'
+        },
+        {
+          name: 'Mics',
+          description: '(2) Shure Beta 52A'
+        },
+      ],
+      lighting: [
+        {
+          name: 'Controller Board',
+          description: 'Avolites Quartz'
+        },
+        {
+          name: 'LED Cans',
+          description: '(18) Chauvet Par-Quad 18 LEDs'
+        },
+        {
+          name: 'LED Cans',
+          description: '(6) Chauvet NXT-1 Moving Head LED Panel'
+        },
+        {
+          name: 'FX',
+          description: '(1) Martin-Rush MH3 Beam'
+        },
+        {
+          name: 'FX',
+          description: '(6) Chauvet R1-Beam Moving Head'
+        },
+        {
+          name: 'FX',
+          description: '(1) Martin Atomic Strobe'
+        }
+      ],
+      stage: [
+        {
+          name: 'Width',
+          description: '32 feet'
+        },
+        {
+          name: 'Depth',
+          description: '16.5 feet'
+        },
+        {
+          name: 'Height',
+          description: '3.5 feet'
+        },
+        {
+          name: 'Light-Clearance',
+          description: '9.5 feet to the lights'
+        },
+        {
+          name: 'Truss-Clearance',
+          description: '11 feet to truss'
+        },
+        {
+          name: 'Fog Machine',
+          description: '(3) The coolest thing we have'
+        }
+      ]
+    }
+  };
 
   this.signup = function(user) {
     $log.debug('signupCtrl.signup()');
 
+
     authService.signup(user)
     .then( () => {
-      $location.url('/home');
+
+      return $q.resolve(venueService.createVenue(tempVenue));
+    })
+    .then( venueData => {
+      return $q.resolve(gearService.postGear(venueData._id, tempGear));
+    })
+    .then(userGear => {
+      $location.url('/dashboard');
     });
-  }
-
-  this.venueCheck = function() {
-    $log.debug('signupCtrl.venueCheck()');
-
-    if(this.venueCheckbox) {
-      this.user.isVenue = true;
-      // TODO: Add functionality for artist
-      return;
-    }
-
-    this.user.isVenue = false;
-    // TODO: Add functionality for artist
-
-    return;
-  }
+  };
 }

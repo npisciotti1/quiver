@@ -1,6 +1,6 @@
 'use strict';
 
-require('./edit-venue.scss');
+require('./_edit-venue.scss');
 
 module.exports = {
   template: require('./edit-venue.html'),

@@ -6,6 +6,11 @@
   background-color: $site-primary;
   position: relative;
 
+  img {
+    width: 25%;
+    height: 100%;
+  }
+
   .bg-blue {
     background-color: $site-secondary;
     width: 97.5%;
@@ -18,11 +23,30 @@
     h2 {
       font-size: 3vw;
       font-family: $font-title;
+      display: inline-block;
 
     }
+
     p {
       font-size: 2vw;
       font-family: $font-std;
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: inline-block;
+      width: 50%;
+
+
+      ul {
+
+
+        li{
+          display: inline-block;
+          padding: 1vw;
+        }
+      }
+
     }
   }
 
