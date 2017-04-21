@@ -1,11 +1,10 @@
 @import '../../../scss/lib/vars';
 
 .display-gear {
-  float: right;
   display: inline-block;
   height: 400px;
-  width: 65%;
-
+  width: 100%;
+  overflow: scroll;
 
   h2 {
     font-size: 4vw;
