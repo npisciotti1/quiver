@@ -50,6 +50,10 @@ function NavbarController($log, $location, $rootScope, authService) {
       url: '/#!/venues',
     },
     {
+      name: 'search',
+      url: '/#!/search',
+    },
+    {
       name: 'about',
       url: '/#!/about'
     }
