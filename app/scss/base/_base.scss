@@ -19,3 +19,15 @@ footer {
   width: 100%;
   background-color: $site-primary;
 }
+
+.btn-std {
+  width: 9vw;
+  background-color: rgba(157, 68, 68, 1);
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 1.25vw;
+}
+
+.btn-std:hover {
+  outline: none;
+}
