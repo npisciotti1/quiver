@@ -1,0 +1,59 @@
+.edit-wrapper {
+  button {
+    font-size: 1vw;
+    background: #444;
+    color: #fff;
+    margin-top: 1vw;
+  }
+
+  select {
+    width: 50%;
+    margin-right: 1vw;
+  }
+}
+
+.edit-gear-section {
+  background-color: white;
+  height: 20vw;
+  border: 2px solid black;
+  border-radius: 5px;
+  position: relative;
+  padding: 2%;
+
+  button {
+    font-size: 1vw;
+  }
+
+  input {
+    border: none;
+    border-radius: 3px;
+    font-size: 1.10vw;
+  }
+  input:hover {
+    // box-shadow: 0 0 3pt 2pt grey;
+    outline: solid 1px #444;
+    box-sizing: border-box;
+  }
+  input:focus {
+    outline: none;
+    box-shadow: 0 0 3pt 2pt grey;
+  }
+  .name-field {
+    width: 25%;
+    margin-bottom: .5vw;
+    margin-right: 15px;
+  }
+  .description-field {
+    width: 65%;
+    margin-bottom: .5vw;
+  }
+
+  div[name="vert-line"] {
+    width: 2px;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    left: 28%;
+    top: 0%;
+  }
+}

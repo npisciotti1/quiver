@@ -1,17 +1,15 @@
 <section class="navbar">
   <div class="bg-blue">
-    <h2>Quiver App</h2>
-    <p>For bands and venues (under construction)</p>
-    <!-- TODO: -->
-    <!-- add our logo here from assets -->
-
-    <div name="nav">
+    <a href="/#!/dashboard">
+      <img ng-src="https://image.ibb.co/d2gKMQ/quiver_logo_ver2.png" alt="quiver app">
+    </a>
+    <div class="nav-links">
       <ul>
         <li class="nav-item" ng-repeat="route in navBarCtrl.routes">
           <a href="{{ route.url }}">{{ route.name }}</a>
         </li>
       </ul>
-      <div ng-hide="navbarCtrl.hideButtons">
+      <div ng-hide="navBarCtrl.hideButtons">
         <button class="btn-std" ng-click="navBarCtrl.logout()">logout</button>
       </div>
     </div>

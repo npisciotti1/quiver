@@ -36,6 +36,7 @@ module.exports = {
     }),
     new CleanPlugin(),
   ],
+
   module: {
     rules: [
       {
