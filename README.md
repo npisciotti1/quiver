@@ -1,7 +1,6 @@
-# Quiver
-Quiver App for Bands and Venues
+TODO:
+profpic in the top left along with moving the venue info
+can leave gear as is
+pic array to be underneath
 
-
-### Under Construction!
-
-Currently under development, official deployment set for April 21st!
+to be completed later today
