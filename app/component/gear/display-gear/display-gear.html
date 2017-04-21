@@ -1,6 +1,6 @@
-<section class="display-gear">
+<h2 class="gear-title">Gear</h2>
 
-  <h2>Gear</h2>
+<section class="display-gear">
   <div class="table-wrapper" ng-if="!displayGearCtrl.displayEdit">
 
     <div name="audio" class="table-tab" ng-click="displayGearCtrl.showAudio()"><span>Audio</span></div>
@@ -30,9 +30,6 @@
       </tr>
     </table>
   </div>
-
-  <button class="btn-std" type="button" ng-click="displayGearCtrl.showEdit()" ng-if="!displayGearCtrl.displayEdit">Edit</button>
-
   <section class="edit-wrapper" ng-if="displayGearCtrl.displayEdit">
     <form novalidate>
 
@@ -50,9 +47,7 @@
       </edit-gear>
 
       <div class="placeholder" ng-if="displayGearCtrl.showPlaceholder">
-        <p>Choose</p>
-        <p>  a    </p>
-        <p>    Category!</p>
+        <p>Choose a category!</p>
       </div>
 
       <select class="category"
@@ -66,3 +61,5 @@
     </form>
   </section>
 </section>
+
+  <button class="btn-std" type="button" ng-click="displayGearCtrl.showEdit()" ng-if="!displayGearCtrl.displayEdit">Edit</button>

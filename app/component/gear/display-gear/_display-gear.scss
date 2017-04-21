@@ -4,11 +4,13 @@
   display: inline-block;
   height: 400px;
   width: 100%;
-  overflow: scroll;
+  // overflow: auto;
+  margin-bottom: 2vw;
 
   h2 {
     font-size: 4vw;
     font-family: $font-std;
+    margin-top: 1.5vw;
   }
 
   .table-wrapper {
@@ -25,7 +27,9 @@
       margin: none;
       border-bottom: 2px solid black;
       float: left;
-      width: 31.1%;
+      width: 31.65%;
+      padding-top: 1.5vw;
+      padding-bottom: 1vw;
       cursor: pointer;
     }
 
@@ -65,7 +69,7 @@
         td{
           font-size: 1.3vw;
           padding-top: 20px;
-
+          padding-left: 1vw;
         }
 
         td:first-child{
@@ -107,6 +111,8 @@
       font-size: 3vw;
       font-family: $font-std;
       text-align: center;
+      margin-top: 2vw;
+      text-decoration: underline;
     }
   }
 }
