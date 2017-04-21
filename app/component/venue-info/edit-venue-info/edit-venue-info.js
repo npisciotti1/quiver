@@ -23,11 +23,9 @@ function EditVenueInfoController($log, $window, venueService) {
   this.updateVenueInfo = function() {
     $log.debug('EditVenueInfoController.updateVenueInfo()');
 
-    console.log('venue:');
     venueService.fetchOneVenue($window.localStorage.currentVenue)
     .then( venueObj => {
       console.log(venueObj);
-      console.log('venue', this.venue);
       venueService.updateVenue(venueObj._id, this.venue);
       this.showForm = false;
     })

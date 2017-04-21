@@ -81,7 +81,7 @@ function venueService($q, $log, $window, $http, authService) {
     })
     .then( res => {
       $log.log('we got one venue bruh!');
-      service.venues.push(res.data);
+      service.venues = res.data;
       return service.venues;
     })
     .catch( err => {
@@ -103,7 +103,7 @@ function venueService($q, $log, $window, $http, authService) {
           'Content-Type': 'application/json'
         }
       };
-
+      console.log(venueData);
       return $http.put(url, venueData, config);
     })
     .then( res => {
