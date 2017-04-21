@@ -3,50 +3,71 @@
 .display-gear {
   float: right;
   display: inline-block;
-  width: 35.3vw;
-  overflow: scroll;
+  height: 400px;
+  width: 65%;
 
 
   h2 {
-    font-size: 6vw;
+    font-size: 4vw;
     font-family: $font-std;
   }
 
   .table-wrapper {
     border: 2px black solid;
     border-radius: 5px;
+    height: 100%;
+    overflow: scroll;
 
     .table-tab {
       font-family: $font-std;
       display: inline-block;
-      font-size: 3vw;
+      font-size: 2vw;
       padding: .5vw;
       margin: none;
-      // width: 30.15%;
-      width: 10.54vw;
       border-bottom: 2px solid black;
       float: left;
+      width: 31.1%;
+      cursor: pointer;
     }
 
+
     .table-tab[name="audio"] {
-      background-color: rgba(157, 68, 68, .7);
+      background-color: rgba(157, 68, 68, .9);
       border-right: 2px solid black;
+    }
+    .table-tab[name="audio"]:hover {
+      background-color: rgba(157, 68, 68, .7);
     }
 
     .table-tab[name="lighting"] {
-      background-color: rgba(83, 119, 139, .7);
+      background-color: rgba(83, 119, 139, .9);
       border-right: 2px solid black;
     }
 
+    .table-tab[name="lighting"]:hover {
+      background-color: rgba(83, 119, 139, .7);
+    }
+
     .table-tab[name="stage"] {
+      background-color: rgba(57, 86, 131, .9);
+    }
+
+    .table-tab[name="stage"]:hover {
       background-color: rgba(57, 86, 131, .7);
     }
 
     table {
-      height: 20vw;
+      height: 100%;
 
       tr {
         width: 100%;
+        height: 50px;
+
+        td{
+          font-size: 1.3vw;
+          padding-top: 20px;
+
+        }
 
         td:first-child{
           width: 32.5%;
