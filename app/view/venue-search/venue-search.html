@@ -10,8 +10,7 @@
         ng-repeat="venue in venueSearchCtrl.allVenues | fuzzySearch: venueSearchCtrl.venueSearchTerm"
         venue="item"
         delete-done=""
-        ng-click="venueSearchCtrl.currentVenue = venue">
-
+        ng-click="venueSearchCtrl.changeView(venue)">
           {{venue.name}}
       </li>
     </ul>
