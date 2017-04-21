@@ -9,13 +9,24 @@ html body {
 main{
   max-width: 960px;
   width: 90%;
-  margin: 0 5%;
-  //TODO: remove this rule, it's for the "under construction page"
-  height: 600px;
+  margin: 5% 5%;
+  min-height: 750px;
 }
 
 footer {
   height: 6vw;
   width: 100%;
   background-color: $site-primary;
+}
+
+.btn-std {
+  width: 9vw;
+  background-color: rgba(157, 68, 68, 1);
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 1.25vw;
+}
+
+.btn-std:hover {
+  outline: none;
 }

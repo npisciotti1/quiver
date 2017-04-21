@@ -69,25 +69,37 @@ function SignupController($log, $q, $window, $location, authService, venueServic
         },
         {
           name: 'FX',
+          description: '(6) Chauvet R1-Beam Moving Head'
+        },
+        {
+          name: 'FX',
           description: '(1) Martin Atomic Strobe'
         }
       ],
       stage: [
         {
-          name: 'width',
+          name: 'Width',
           description: '32 feet'
         },
         {
-          name: 'depth',
+          name: 'Depth',
           description: '16.5 feet'
         },
         {
-          name: 'height',
+          name: 'Height',
           description: '3.5 feet'
         },
         {
-          name: 'Clearance',
+          name: 'Light-Clearance',
           description: '9.5 feet to the lights'
+        },
+        {
+          name: 'Truss-Clearance',
+          description: '11 feet to truss'
+        },
+        {
+          name: 'Fog Machine',
+          description: '(3) The coolest thing we have'
         }
       ]
     }
