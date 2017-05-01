@@ -18,16 +18,15 @@ function EditVenueInfoController($log, $window, venueService) {
 
   this.edit = function() {
     this.showForm = true;
-  }
+  };
 
   this.updateVenueInfo = function() {
     $log.debug('EditVenueInfoController.updateVenueInfo()');
 
-    venueService.fetchOneVenue($window.localStorage.currentVenue)
+    venueService.fetchOneVenue($window.localStorage.currentVenueID)
     .then( venueObj => {
-      console.log(venueObj);
       venueService.updateVenue(venueObj._id, this.venue);
       this.showForm = false;
-    })
-  }
+    });
+  };
 }
