@@ -52,8 +52,8 @@ function gearService($q, $log, $http, $window, authService) {
 
       return $http.get(url, config)
       .then( res => {
-        $log.log('gear was fetched heres the res.data', res.data);
         service.userGear = res.data.gear;
+        $window.localStorage.gearID = res.data._id;
         return service.userGear;
       })
       .catch( err => {
@@ -66,7 +66,6 @@ function gearService($q, $log, $http, $window, authService) {
   service.updateGear = function(venueID, gearData) {
     $log.debug(gearService.updateGear);
 
-    console.log('heres the gearData', gearData);
     return authService.getToken()
     .then( token => {
       let url = `${process.env.__API_URL__}/api/venue/${venueID}/gear/${gearData.gear._id}`;

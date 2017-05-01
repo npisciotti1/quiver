@@ -20,7 +20,7 @@ function DisplayGearController($log, $window, venueService, gearService) {
   this.populateTable = function() {
     $log.debug('DisplayGearController.getGear()');
 
-    gearService.fetchGear($window.localStorage.currentVenue)
+    gearService.fetchGear($window.localStorage.currentVenueID)
     .then( gearData => {
       this.gear = gearData;
     });

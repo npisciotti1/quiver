@@ -14,19 +14,18 @@ module.exports = {
 function DisplayVenueInfoController($log, $window, venueService) {
   $log.debug('DisplayVenueInfoController');
 
-  this.address = '';
-  this.currentVenue = {};
+  this.currentVenue = venueService.currentVenue;
+  this.address = venueService.currentVenue.address;
 
   this.getProfileInfo = function() {
     $log.debug('DisplayVenueInfoController.getProfileInfo()');
 
-    venueService.fetchOneVenue($window.localStorage.currentVenue)
-    .then( venue => {
-      this.currentVenue = venue;
-      this.address = venue.address;
-      console.log(this.address);
+    venueService.fetchOneVenue($window.localStorage.currentVenueID)
+    .then( () => {
+      this.currentVenue = venueService.currentVenue;
+      this.address = venueService.currentVenue.address;
     });
-  }
+  };
 
   this.getProfileInfo();
 }
