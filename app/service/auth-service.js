@@ -75,7 +75,8 @@ function authService($q, $log, $http, $window) {
     return $http.get(url, config)
     .then( res => {
       $log.log('success', res.data);
-      return setToken(res.data);
+      $window.localStorage.userID = res.data.userID;
+      return setToken(res.data.token);
     })
     .catch( err => {
       $log.error(err.message);
