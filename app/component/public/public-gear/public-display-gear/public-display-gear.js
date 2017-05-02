@@ -20,7 +20,7 @@ function PublicDisplayGearController($log, $window, venueService, gearService) {
   this.populateTable = function() {
     $log.debug('PublicDisplayGearController.getGear()');
 
-    gearService.fetchGear($window.localStorage.currentVenueID)
+    gearService.fetchGear($window.localStorage.currentPublicVenueID)
     .then( gearData => {
       this.gear = gearData;
     });
@@ -76,22 +76,8 @@ function PublicDisplayGearController($log, $window, venueService, gearService) {
     if( categoryStr === 'stage') return true;
   };
 
-  this.updateGear = function() {
-    $log.debug('PublicDisplayGearController.updateGear()');
-    this.hideEdit();
-
-    this.gear._id = $window.localStorage.gearID;
-
-    gearService.updateGear($window.localStorage.currentVenue, this.gear)
-    .then( (res) => {
-      console.log('gear successfully updated heres the res', res);
-    });
-  };
-
   this.bindNewGear = function(name, description) {
     let newItem = {name: name, description: description};
-
-    console.log('binding new object,', newItem);
 
     if(this.checkIfAudio(this.selectedCategory)) {
       this.gear.audio.push(newItem);

@@ -8,6 +8,7 @@ function venueService($q, $log, $window, $http, authService) {
   let service = {};
   service.venues = [];
   service.currentVenue = {};
+  service.currentPublicVenue = {};
 
   service.createVenue = function(venue) {
     $log.debug('venueService.createVenue');
@@ -81,6 +82,32 @@ function venueService($q, $log, $window, $http, authService) {
       service.currentVenue = res.data;
       $window.localStorage.currentVenueID = res.data._id;
       return service.currentVenue;
+    })
+    .catch( err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+  };
+
+  service.fetchOneVenuePublic = function(venueID) {
+    $log.debug('venueService.fetchOneVenuePublic');
+
+    return authService.getToken()
+    .then( token => {
+      let url = `${process.env.__API_URL__}/api/venue/${venueID}`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      };
+
+      return $http.get(url, config);
+    })
+    .then( res => {
+      service.currentPublicVenue = res.data;
+      $window.localStorage.currentPublicVenueID = res.data._id;
+      return service.currentPublicVenue;
     })
     .catch( err => {
       $log.error(err.message);

@@ -31,9 +31,7 @@ function authService($q, $log, $http, $window) {
   service.logout = function() {
     $log.debug('authService.logout()');
 
-    delete $window.localStorage.token;
-    delete $window.localStorage.currentVenue;
-    delete $window.localStorage.gearID;
+    for (var prop in $window.localStorage) delete $window.localStorage[prop];
     token = null;
     return $q.resolve();
   };
