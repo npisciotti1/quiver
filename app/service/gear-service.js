@@ -7,6 +7,7 @@ function gearService($q, $log, $http, $window, authService) {
 
   let service = {};
   service.userGear = {};
+  service.publicGear = {};
 
   service.postGear = function(venueID, gearData) {
     $log.debug('gearService.postGear');
@@ -54,7 +55,36 @@ function gearService($q, $log, $http, $window, authService) {
       .then( res => {
         service.userGear = res.data.gear;
         $window.localStorage.gearID = res.data._id;
+        console.log('gear was fetched, res.data._id:', res.data._id);
         return service.userGear;
+      })
+      .catch( err => {
+        $log.error(err.message);
+        $q.reject(err);
+      });
+    });
+  };
+
+  service.fetchGearPublic = function(venueID) {
+    $log.debug('gearService.fetchGear');
+
+    if(service.userGear.audio) return $q.resolve(service.userGear);
+
+    return authService.getToken()
+    .then( token => {
+      let url = `${process.env.__API_URL__}/api/venue/${venueID}/gear`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      };
+
+      return $http.get(url, config)
+      .then( res => {
+        service.publicGear = res.data.gear;
+        $window.localStorage.publicGearID = res.data._id;
+        return service.publicGear;
       })
       .catch( err => {
         $log.error(err.message);

@@ -14,13 +14,13 @@ module.exports = {
 function PublicDisplayGearController($log, $window, venueService, gearService) {
   $log.debug('PublicDisplayGearController');
 
+  this.gear = {};
   this.categories = [];
-  this.newItem = {};
 
   this.populateTable = function() {
     $log.debug('PublicDisplayGearController.getGear()');
 
-    gearService.fetchGear($window.localStorage.currentVenueID)
+    gearService.fetchGearPublic($window.localStorage.currentPublicVenueID)
     .then( gearData => {
       this.gear = gearData;
     });
@@ -74,39 +74,6 @@ function PublicDisplayGearController($log, $window, venueService, gearService) {
 
   this.checkIfStage = function(categoryStr) {
     if( categoryStr === 'stage') return true;
-  };
-
-  this.updateGear = function() {
-    $log.debug('PublicDisplayGearController.updateGear()');
-    this.hideEdit();
-
-    this.gear._id = $window.localStorage.gearID;
-
-    gearService.updateGear($window.localStorage.currentVenue, this.gear)
-    .then( (res) => {
-      console.log('gear successfully updated heres the res', res);
-    });
-  };
-
-  this.bindNewGear = function(name, description) {
-    let newItem = {name: name, description: description};
-
-    console.log('binding new object,', newItem);
-
-    if(this.checkIfAudio(this.selectedCategory)) {
-      this.gear.audio.push(newItem);
-      return;
-    }
-
-    if(this.checkIfLighting(this.selectedCategory)) {
-      this.gear.lighting.push(newItem);
-      return;
-    }
-
-    if(this.checkIfStage(this.selectedCategory)) {
-      this.gear.stage.push(newItem);
-      return;
-    }
   };
 
   //set this to true to display audio table on page load

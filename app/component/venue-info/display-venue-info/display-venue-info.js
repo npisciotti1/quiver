@@ -14,16 +14,16 @@ module.exports = {
 function DisplayVenueInfoController($log, $window, venueService) {
   $log.debug('DisplayVenueInfoController');
 
-  this.currentVenue = venueService.currentVenue;
-  this.address = venueService.currentVenue.address;
+  this.userVenue = venueService.userVenue;
+  this.address = venueService.userVenue.address;
 
   this.getProfileInfo = function() {
     $log.debug('DisplayVenueInfoController.getProfileInfo()');
 
-    venueService.fetchOneVenue($window.localStorage.currentVenueID)
+    venueService.fetchOneVenue($window.localStorage.userVenueID)
     .then( () => {
-      this.currentVenue = venueService.currentVenue;
-      this.address = venueService.currentVenue.address;
+      this.userVenue = venueService.userVenue;
+      this.address = venueService.userVenue.address;
     });
   };
 

@@ -1,11 +1,5 @@
 @import '../../scss/lib/vars';
 
-// h1 {
-//   font-size: 2.7vw;
-//   text-align: center;
-//   font-family: $font-title;
-// }
-
 .aboutus-content {
   h1 {
     font-size: 3vw;
@@ -15,7 +9,7 @@
 
 .people {
   position: relative;
-  width: 75%;
+  width: 40%;
   margin: auto;
   margin-top: 5%;
 }
@@ -41,7 +35,7 @@
   display: inline-block;
   line-height: 26px;
   color: white;
-  font-size: 1.5vw;
+  font-size: 1.25vw;
   font-family: font-std;
   font-weight: 900;
   position: absolute;

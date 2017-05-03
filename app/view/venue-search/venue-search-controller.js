@@ -2,16 +2,16 @@
 
 require('./_venue-search.scss');
 
-module.exports = ['$log', '$location', '$q', 'authService', 'venueService', VenueSearchController];
+module.exports = ['$log', '$location', '$q', '$window', 'authService', 'venueService', VenueSearchController];
 
-function VenueSearchController($log, $location, $q, authService, venueService) {
+function VenueSearchController($log, $location, $q, $window, authService, venueService) {
   $log.debug('VenueSearchController');
 
   this.allVenues = [];
 
 
   this.changeView = function(venue) {
-    console.log(venue);
+    $window.localStorage.currentPublicVenueID = venue._id;
     $location.url('/public');
   };
 
