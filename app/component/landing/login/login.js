@@ -18,9 +18,7 @@ function LoginController($log, $location, authService, venueService, gearService
 
     authService.login(this.user)
     .then( () => venueService.fetchOneVenueLogin())
-    .then( () => gearService.fetchGear(venueService.currentVenue._id))
-    .then( () => {
-      $location.url('/dashboard');
-    });
+    .then( () => gearService.fetchGear(venueService.userVenue._id))
+    .then( () => $location.url('/dashboard'));
   };
 }
