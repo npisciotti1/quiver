@@ -29,7 +29,7 @@ function venueService($q, $log, $window, $http, authService) {
     .then( res => {
       $log.log('venue created');
       let newVenue = res.data;
-      $window.localStorage.userVenue = newVenue._id;
+      $window.localStorage.userVenueID = newVenue._id;
       return newVenue;
     })
     .catch(err => {
