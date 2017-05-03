@@ -101,7 +101,7 @@ function DisplayGearController($log, $window, venueService, gearService) {
     //had to add this so mongo recognizes what we're attempting to update
     let payload = {gear: this.gear};
 
-    gearService.updateGear($window.localStorage.userVenue, payload)
+    gearService.updateGear($window.localStorage.userVenueID, payload)
     .then( () => {
       console.log('gear successfully updated');
     });
