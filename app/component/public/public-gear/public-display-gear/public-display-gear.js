@@ -14,13 +14,13 @@ module.exports = {
 function PublicDisplayGearController($log, $window, venueService, gearService) {
   $log.debug('PublicDisplayGearController');
 
+  this.gear = {};
   this.categories = [];
-  this.newItem = {};
 
   this.populateTable = function() {
     $log.debug('PublicDisplayGearController.getGear()');
 
-    gearService.fetchGear($window.localStorage.currentPublicVenueID)
+    gearService.fetchGearPublic($window.localStorage.currentPublicVenueID)
     .then( gearData => {
       this.gear = gearData;
     });
@@ -74,25 +74,6 @@ function PublicDisplayGearController($log, $window, venueService, gearService) {
 
   this.checkIfStage = function(categoryStr) {
     if( categoryStr === 'stage') return true;
-  };
-
-  this.bindNewGear = function(name, description) {
-    let newItem = {name: name, description: description};
-
-    if(this.checkIfAudio(this.selectedCategory)) {
-      this.gear.audio.push(newItem);
-      return;
-    }
-
-    if(this.checkIfLighting(this.selectedCategory)) {
-      this.gear.lighting.push(newItem);
-      return;
-    }
-
-    if(this.checkIfStage(this.selectedCategory)) {
-      this.gear.stage.push(newItem);
-      return;
-    }
   };
 
   //set this to true to display audio table on page load

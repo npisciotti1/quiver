@@ -23,7 +23,7 @@ function EditVenueInfoController($log, $window, venueService) {
   this.updateVenueInfo = function() {
     $log.debug('EditVenueInfoController.updateVenueInfo()');
 
-    venueService.fetchOneVenue($window.localStorage.currentVenueID)
+    venueService.fetchOneVenue($window.localStorage.userVenueID)
     .then( venueObj => {
       venueService.updateVenue(venueObj._id, this.venue);
       this.showForm = false;

@@ -20,7 +20,7 @@ function DisplayGearController($log, $window, venueService, gearService) {
   this.populateTable = function() {
     $log.debug('DisplayGearController.getGear()');
 
-    gearService.fetchGear($window.localStorage.currentVenueID)
+    gearService.fetchGear($window.localStorage.userVenueID)
     .then( gearData => {
       this.gear = gearData;
     });
@@ -101,7 +101,7 @@ function DisplayGearController($log, $window, venueService, gearService) {
     //had to add this so mongo recognizes what we're attempting to update
     let payload = {gear: this.gear};
 
-    gearService.updateGear($window.localStorage.currentVenue, payload)
+    gearService.updateGear($window.localStorage.userVenue, payload)
     .then( () => {
       console.log('gear successfully updated');
     });

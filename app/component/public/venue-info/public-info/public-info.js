@@ -21,8 +21,6 @@ function PublicInfoController($log, $window, venueService) {
 
     venueService.fetchOneVenuePublic($window.localStorage.currentPublicVenueID)
     .then( () => {
-      console.log('$window.localStorage', $window.localStorage);
-      console.log('fetched venue in public dash, this.currentPublicVenue:', this.currentPublicVenue);
       this.venue = venueService.currentPublicVenue;
     });
   };

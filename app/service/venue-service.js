@@ -7,7 +7,7 @@ function venueService($q, $log, $window, $http, authService) {
 
   let service = {};
   service.venues = [];
-  service.currentVenue = {};
+  service.userVenue = {};
   service.currentPublicVenue = {};
 
   service.createVenue = function(venue) {
@@ -29,7 +29,7 @@ function venueService($q, $log, $window, $http, authService) {
     .then( res => {
       $log.log('venue created');
       let newVenue = res.data;
-      $window.localStorage.currentVenue = newVenue._id;
+      $window.localStorage.userVenue = newVenue._id;
       return newVenue;
     })
     .catch(err => {
@@ -79,9 +79,9 @@ function venueService($q, $log, $window, $http, authService) {
       return $http.get(url, config);
     })
     .then( res => {
-      service.currentVenue = res.data;
-      $window.localStorage.currentVenueID = res.data._id;
-      return service.currentVenue;
+      service.userVenue = res.data;
+      $window.localStorage.userVenueID = res.data._id;
+      return service.userVenue;
     })
     .catch( err => {
       $log.error(err.message);
@@ -132,9 +132,9 @@ function venueService($q, $log, $window, $http, authService) {
       return $http.get(url, config);
     })
     .then( res => {
-      service.currentVenue = res.data;
-      $window.localStorage.currentVenueID = res.data._id;
-      return $q.resolve(service.currentVenue);
+      service.userVenue = res.data;
+      $window.localStorage.userVenueID = res.data._id;
+      return $q.resolve(service.userVenue);
     })
     .catch( err => {
       $log.error(err.message);
