@@ -27,10 +27,8 @@ function venueService($q, $log, $window, $http, authService) {
       return $http.post(url, venue, config);
     })
     .then( res => {
-      $log.log('venue created');
-      let newVenue = res.data;
-      $window.localStorage.userVenue = newVenue._id;
-      return newVenue;
+      $window.localStorage.userVenueID = res.data._id;
+      return res.data;
     })
     .catch(err => {
       $log.error(err.message);
@@ -155,7 +153,6 @@ function venueService($q, $log, $window, $http, authService) {
           'Content-Type': 'application/json'
         }
       };
-      console.log(venueData);
       return $http.put(url, venueData, config);
     })
     .then( res => {
