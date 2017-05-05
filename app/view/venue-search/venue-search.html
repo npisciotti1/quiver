@@ -11,7 +11,18 @@
         venue="item"
         delete-done=""
         ng-click="venueSearchCtrl.changeView(venue)">
-          {{venue.name}}
+
+        <div class="venue-item-div">
+          <img ng-src="http://placehold.it/150x150/6f747c/ffffff" >
+
+          <div class="venue-item-info">
+            <h2> {{ venue.name }} </h2>
+
+            <h3> {{ venue.address }} </h3>
+
+          </div>
+
+        </div>
       </li>
     </ul>
   </div>
