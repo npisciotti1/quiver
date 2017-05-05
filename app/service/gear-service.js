@@ -26,7 +26,7 @@ function gearService($q, $log, $http, $window, authService) {
       return $http.post(url, gearData, config)
       .then( res => {
         service.userGear = res.data.gear;
-        $window.localStorage.gearID = res.data._id;
+        $window.localStorage.userGearID = res.data._id;
         return service.userGear;
       })
       .catch( err => {
@@ -54,8 +54,7 @@ function gearService($q, $log, $http, $window, authService) {
       return $http.get(url, config)
       .then( res => {
         service.userGear = res.data.gear;
-        $window.localStorage.gearID = res.data._id;
-        console.log('gear was fetched, res.data._id:', res.data._id);
+        $window.localStorage.userGearID = res.data._id;
         return service.userGear;
       })
       .catch( err => {
@@ -67,8 +66,6 @@ function gearService($q, $log, $http, $window, authService) {
 
   service.fetchGearPublic = function(venueID) {
     $log.debug('gearService.fetchGear');
-
-    if(service.userGear.audio) return $q.resolve(service.userGear);
 
     return authService.getToken()
     .then( token => {
