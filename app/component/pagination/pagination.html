@@ -1,0 +1,6 @@
+<div class="pagination"><ul>
+  <li ng-class="{disabled: paginationCtrl.noPrevious()}"><a ng-click="selectPrevious()">Previous</a></li>
+  <li ng-repeat="page in paginationCtrl.pages" ng-class="{active: paginationCtrl.isActive(page)}"><a ng-click="selectPage(page)">{{page}}</a></li>
+  <li ng-class="{disabled: paginationCtrl.noNext()}"><a ng-click="selectNext()">Next</a></li>
+  </ul>
+</div>

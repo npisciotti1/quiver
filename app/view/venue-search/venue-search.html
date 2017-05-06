@@ -1,17 +1,17 @@
 <section class="venue-search">
   <h2>find a venue</h2>
 
-  <uib-pagination total-items="venueSearchCtrl.totalPageItems" ng-model="venueSearchCtrl.currentPage" ng-change="pageChanged()" items-per-page="venueSearchCtrl.itemsPerPage"></uib-pagination>
-
   <input ng-model="venueSearchCtrl.venueSearchTerm"
     type="text" name="search-bar" placeholder="search venues">
 
+
   <div class="venue-item-container">
     <ul>
+      <pagination pages="venueSearchCtrl.totalPageItems" num-pages="venueSearchCtrl.totalPageItems" current-page="venueSearchCtrl.currentPage" class="pagination-small">
+      </pagination>
       <li class="venue-item"
         ng-repeat="venue in venueSearchCtrl.allVenues | fuzzySearch: venueSearchCtrl.venueSearchTerm"
         venue="item"
-        delete-done=""
         ng-click="venueSearchCtrl.changeView(venue)">
 
         <div class="venue-item-div">

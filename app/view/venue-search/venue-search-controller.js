@@ -9,17 +9,13 @@ function VenueSearchController($log, $location, $q, $window, authService, venueS
 
   this.allVenues = [];
 
-  this.setPage = function(pageNum) {
-    this.currentPage = pageNum;
-  };
-
   this.changeView = function(venue) {
     $window.localStorage.currentPublicVenueID = venue._id;
     $location.url('/public');
   };
 
   this.setPagination = function() {
-    this.totalPageItems = 64;
+    this.totalPageItems = this.allVenues.length;
     this.currentPage = 1;
     this.itemsPerPage = 4;
   };
@@ -31,7 +27,6 @@ function VenueSearchController($log, $location, $q, $window, authService, venueS
       this.setPagination();
     });
   };
+
   this.getAllVenues();
-
-
 }
