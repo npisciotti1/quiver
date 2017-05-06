@@ -9,8 +9,9 @@ const path = require('path');
 
 const uiRouter = require('angular-ui-router');
 const ngFileUpload = require('ng-file-upload');
+const uiBootstrap = require('angular-ui-bootstrap');
 
-const quiver = angular.module('quiver', [uiRouter, ngFileUpload]);
+const quiver = angular.module('quiver', [uiRouter, ngFileUpload, uiBootstrap]);
 
 let context = require.context('./config/', true, /\.js$/);
 context.keys().forEach( key => {

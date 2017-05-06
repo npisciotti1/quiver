@@ -1,6 +1,8 @@
 <section class="venue-search">
   <h2>find a venue</h2>
 
+  <uib-pagination total-items="venueSearchCtrl.totalPageItems" ng-model="venueSearchCtrl.currentPage" ng-change="pageChanged()" items-per-page="venueSearchCtrl.itemsPerPage"></uib-pagination>
+
   <input ng-model="venueSearchCtrl.venueSearchTerm"
     type="text" name="search-bar" placeholder="search venues">
 
