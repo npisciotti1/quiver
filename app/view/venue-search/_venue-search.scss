@@ -16,13 +16,13 @@
       li {
         display: inline-block;
         text-decoration: none;
-        font-size: 2.25vw;
+        font-size: 2vw;
 
         a.active {
           background-color: #4CAF50;
           color: white;
         }
-        a:hover:not(.active) {
+        a:hover {
         background-color: #ddd;
         }
 
