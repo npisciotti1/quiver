@@ -96,7 +96,7 @@ function DisplayGearController($log, $window, venueService, gearService) {
     $log.debug('DisplayGearController.updateGear()');
     this.hideEdit();
 
-    this.gear._id = $window.localStorage.gearID;
+    this.gear._id = $window.localStorage.userGearID;
 
     //had to add this so mongo recognizes what we're attempting to update
     let payload = {gear: this.gear};
@@ -107,7 +107,13 @@ function DisplayGearController($log, $window, venueService, gearService) {
     });
   };
 
+  this.setUserGearID = function() {
+
+    if(!$window.localStorage.userGearID) $window.localStorage.userGearID = gearService.userGear._id;
+  };
+
   //set this to true to display audio table on page load
   this.displayAudio = true;
   this.populateTable();
+  this.setUserGearID();
 }
