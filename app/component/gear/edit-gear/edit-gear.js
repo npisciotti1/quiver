@@ -19,6 +19,7 @@ function EditGearController($log, $window, venueService, gearService) {
     console.log('binding new object,', newItem);
 
     this.gear.push(newItem);
-
+    this.newItem.name = '';
+    this.newItem.description = '';
   };
 }
