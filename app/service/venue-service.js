@@ -155,7 +155,6 @@ function venueService($q, $log, $window, $http, authService) {
           'Content-Type': 'application/json'
         }
       };
-      // console.log(venueData);
       return $http.put(url, venueData, config);
     })
     .then( res => {
