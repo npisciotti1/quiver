@@ -29,8 +29,9 @@ function VenueSearchController($log, $location, $q, $window, authService, venueS
     });
   };
 
-  this.pageChanged = function() {
-    $log.log('Page changed to: ' + this.currentPage);
+  this.pageChange = function(newPageNumber, oldPageNumber) {
+    this.currentPage = newPageNumber;
+    console.log('Page changed to: ' + this.currentPage);
   };
 
   this.getAllVenues();

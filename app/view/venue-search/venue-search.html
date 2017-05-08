@@ -6,7 +6,9 @@
 
   <div class="venue-item-container">
     <ul>
-      <dir-pagination-controls class="pagination"></dir-pagination-controls>
+      <div class="pagination-controls-wrapper">
+        <dir-pagination-controls class="pagination" on-page-change="venueSearchCtrl.pageChange(newPageNumber, oldPageNumber)"></dir-pagination-controls>
+      </div>
       <li class="venue-item"
         dir-paginate="venue in venueSearchCtrl.allVenues | fuzzySearch: venueSearchCtrl.venueSearchTerm | itemsPerPage: venueSearchCtrl.itemsPerPage"
         venue="item"

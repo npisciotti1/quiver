@@ -7,27 +7,41 @@
   }
 
   .venue-item-container {
-
     padding-left: 0px;
     margin-left: 0px;
 
-    .pagination {
+    .pagination-controls-wrapper {
+      background-color: #82878e;
+      border-radius: 5px;
+      width: 75%;
 
-      li {
-        display: inline-block;
-        text-decoration: none;
-        font-size: 2vw;
+      .pagination {
 
-        a.active {
-          background-color: #4CAF50;
-          color: white;
+        li {
+          display: inline-block;
+          font-size: 2vw;
+          border-radius: 5px;
+          padding: 2%;
+          padding-left: 3%;
+          padding-right: 3%;
+          margin: auto;
+          margin-right: 5%;
+          background-color: rgba(157, 68, 68, 1);
+
+
+          a {
+            text-decoration: none;
+            color: #000000;
+          }
         }
-        a:hover {
-        background-color: #ddd;
+        li:hover {
+          background-color: #fff;
+        }
+        li.active {
+          background-color: #fff;
         }
 
       }
-
     }
 
     .venue-item {
