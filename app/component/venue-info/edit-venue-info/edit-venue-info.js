@@ -19,7 +19,12 @@ function EditVenueInfoController($log, $window, venueService) {
   this.edit = function() {
     this.showForm = true;
   };
-
+  // var tempPhoneNumber = `${Math.floor(Math.random() * 999999999)}`;
+  // function formatPhoneNumber(s) {
+  //   var s2 = (""+s).replace(/\D/g, '');
+  //   var m = s2.match(/^(\d{3})(\d{3})(\d{4})$/);
+  //   return (!m) ? null : "(" + m[1] + ") " + m[2] + "-" + m[3];
+  // }
   this.updateVenueInfo = function() {
     $log.debug('EditVenueInfoController.updateVenueInfo()');
 

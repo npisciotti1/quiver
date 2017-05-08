@@ -15,7 +15,7 @@ function DisplayVenueInfoController($log, $window, venueService) {
   $log.debug('DisplayVenueInfoController');
 
   this.userVenue = venueService.userVenue;
-  this.address = venueService.userVenue.address;
+  // this.address = venueService.userVenue.address;
 
   this.getProfileInfo = function() {
     $log.debug('DisplayVenueInfoController.getProfileInfo()');
@@ -23,8 +23,7 @@ function DisplayVenueInfoController($log, $window, venueService) {
     venueService.fetchOneVenue($window.localStorage.userVenueID)
     .then( () => {
       this.userVenue = venueService.userVenue;
-      this.address = venueService.userVenue.address;
-      console.log('venueService.userVenue:', venueService.userVenue);
+      // this.address = venueService.userVenue.address;
     });
   };
 
