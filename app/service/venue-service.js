@@ -53,7 +53,7 @@ function venueService($q, $log, $window, $http, authService) {
     })
     .then( res => {
       service.venues = res.data;
-      return service.venues;
+      return $q.resolve(service.venues);
     })
     .catch( err => {
       $log.error(err.message);
