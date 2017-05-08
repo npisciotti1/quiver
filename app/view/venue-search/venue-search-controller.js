@@ -15,11 +15,23 @@ function VenueSearchController($log, $location, $q, $window, authService, venueS
     $location.url('/public');
   };
 
+  this.setPagination = function() {
+    this.totalPageItems = this.allVenues.length;
+    this.currentPage = 1;
+    this.itemsPerPage = 4;
+  };
+
   this.getAllVenues = function() {
     venueService.fetchAllVenues()
     .then( venues => {
       this.allVenues = venues;
+      this.setPagination();
     });
+  };
+
+  this.pageChange = function(newPageNumber, oldPageNumber) {
+    this.currentPage = newPageNumber;
+    console.log('Page changed to: ' + this.currentPage);
   };
 
   this.getAllVenues();

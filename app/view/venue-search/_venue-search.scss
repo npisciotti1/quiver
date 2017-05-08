@@ -7,9 +7,50 @@
   }
 
   .venue-item-container {
-
     padding-left: 0px;
     margin-left: 0px;
+
+    .pagination-controls-wrapper {
+      background-color: #82878e;
+      border-radius: 5px;
+      width: 75%;
+
+      .pagination {
+
+        li {
+          display: inline-block;
+          font-size: 2vw;
+          border-radius: 5px;
+          padding: 2%;
+          padding-left: 3%;
+          padding-right: 3%;
+          margin: auto;
+          margin-right: 5%;
+          background-color: rgba(157, 68, 68, 1);
+
+
+          a {
+            text-decoration: none;
+            color: #ffffff;
+          }
+        }
+        li:hover {
+          background-color: #fff;
+
+          a {
+            color: #000000;
+          }
+        }
+        li.active {
+          background-color: #fff;
+
+          a {
+            color: #000000;
+          }
+        }
+
+      }
+    }
 
     .venue-item {
 
@@ -38,8 +79,6 @@
         flex-direction: row;
         align-items: flex-start;
         margin: $gutter-sm;
-        // justify-content: space-around;
-
         background-color: rgba(0, 0, 0, 0);
 
         img {
@@ -52,9 +91,7 @@
           flex-direction: column;
           align-items: flex-start;
           justify-content: center;
-
           background-color: rgba(0, 0, 0, 0);
-
           margin: $gutter-sm;
 
           h2 {

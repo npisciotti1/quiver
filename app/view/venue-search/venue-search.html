@@ -6,10 +6,12 @@
 
   <div class="venue-item-container">
     <ul>
+      <div class="pagination-controls-wrapper">
+        <dir-pagination-controls class="pagination" on-page-change="venueSearchCtrl.pageChange(newPageNumber, oldPageNumber)"></dir-pagination-controls>
+      </div>
       <li class="venue-item"
-        ng-repeat="venue in venueSearchCtrl.allVenues | fuzzySearch: venueSearchCtrl.venueSearchTerm"
+        dir-paginate="venue in venueSearchCtrl.allVenues | fuzzySearch: venueSearchCtrl.venueSearchTerm | itemsPerPage: venueSearchCtrl.itemsPerPage"
         venue="item"
-        delete-done=""
         ng-click="venueSearchCtrl.changeView(venue)">
 
         <div class="venue-item-div">
