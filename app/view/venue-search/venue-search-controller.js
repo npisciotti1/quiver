@@ -9,6 +9,7 @@ function VenueSearchController($log, $location, $q, $window, authService, venueS
 
   this.allVenues = [];
 
+
   this.changeView = function(venue) {
     $window.localStorage.currentPublicVenueID = venue._id;
     $location.url('/public');
@@ -26,6 +27,10 @@ function VenueSearchController($log, $location, $q, $window, authService, venueS
       this.allVenues = venues;
       this.setPagination();
     });
+  };
+
+  this.pageChanged = function() {
+    $log.log('Page changed to: ' + this.currentPage);
   };
 
   this.getAllVenues();

@@ -11,6 +11,25 @@
     padding-left: 0px;
     margin-left: 0px;
 
+    .pagination {
+
+      li {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 2.25vw;
+
+        a.active {
+          background-color: #4CAF50;
+          color: white;
+        }
+        a:hover:not(.active) {
+        background-color: #ddd;
+        }
+
+      }
+
+    }
+
     .venue-item {
 
       cursor: pointer;

@@ -4,13 +4,11 @@
   <input ng-model="venueSearchCtrl.venueSearchTerm"
     type="text" name="search-bar" placeholder="search venues">
 
-
   <div class="venue-item-container">
     <ul>
-      <pagination pages="venueSearchCtrl.totalPageItems" num-pages="venueSearchCtrl.totalPageItems" current-page="venueSearchCtrl.currentPage" class="pagination-small">
-      </pagination>
+      <dir-pagination-controls class="pagination"></dir-pagination-controls>
       <li class="venue-item"
-        ng-repeat="venue in venueSearchCtrl.allVenues | fuzzySearch: venueSearchCtrl.venueSearchTerm"
+        dir-paginate="venue in venueSearchCtrl.allVenues | fuzzySearch: venueSearchCtrl.venueSearchTerm | itemsPerPage: venueSearchCtrl.itemsPerPage"
         venue="item"
         ng-click="venueSearchCtrl.changeView(venue)">
 
