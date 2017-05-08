@@ -13,9 +13,18 @@ function SignupController($log, $q, $window, $location, authService, venueServic
     $location.url('/dashboard');
   });
 
+  // var tempPhoneNumber = `${Math.floor(Math.random() * 999999999)}`;
+  // function formatPhoneNumber(s) {
+  //   var s2 = (""+s).replace(/\D/g, '');
+  //   var m = s2.match(/^(\d{3})(\d{3})(\d{4})$/);
+  //   return (!m) ? null : "(" + m[1] + ") " + m[2] + "-" + m[3];
+  // }
+
   let tempVenue = {
     name: `venue no. ${Math.floor(Math.random() * 1000000)}`,
-    address: `${Math.floor(Math.random() * 1000000)}, main st.`
+    address: `${Math.floor(Math.random() * 1000000)}, main st.`,
+    phone: '1 (123) 456-7890',
+    hours: '8:00am - 10:00pm'
   };
 
   let tempGear = {

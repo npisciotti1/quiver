@@ -24,6 +24,7 @@ function DisplayVenueInfoController($log, $window, venueService) {
     .then( () => {
       this.userVenue = venueService.userVenue;
       this.address = venueService.userVenue.address;
+      console.log('venueService.userVenue:', venueService.userVenue);
     });
   };
 
