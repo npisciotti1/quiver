@@ -8,10 +8,18 @@
     ng-if="editVenueInfoCtrl.showForm">
 
       <fieldset>
+        <!-- name -->
         <span class="item-label">name:</span>
         <input type="text" name="name" ng-model="editVenueInfoCtrl.venue.name" class="input-std">
+        <!-- address -->
         <span class="item-label">address:</span>
         <input type="text" name="address" ng-model="editVenueInfoCtrl.venue.address" class="input-std">
+        <!-- phone -->
+        <span class="item-label">phone:</span>
+        <input type="text" name="phone" ng-model="editVenueInfoCtrl.venue.phone" class="input-std">
+        <!-- hours -->
+        <span class="item-label">hours:</span>
+        <input type="text" name="hours" ng-model="editVenueInfoCtrl.venue.hours" class="input-std">
       </fieldset>
 
       <button type="submit" class="btn-std">Save Changes</button>
