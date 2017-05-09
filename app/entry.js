@@ -11,9 +11,6 @@ const uiRouter = require('angular-ui-router');
 const ngFileUpload = require('ng-file-upload');
 const uiBootstrap = require('angular-ui-bootstrap');
 const ngPaginate = require('angular-utils-pagination');
-const ngMaterial = require('angular-material');
-const ngAria = require('angular-aria');
-const ngMdIcons = require('angular-material-icons');
 
 const quiver = angular.module('quiver', [uiRouter, ngFileUpload, uiBootstrap, ngPaginate]);
 
