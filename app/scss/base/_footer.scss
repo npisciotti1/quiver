@@ -1,0 +1,13 @@
+@import '../lib/vars';
+
+footer {
+  height: 10vw;
+  width: 100%;
+  background-color: $site-tertiary;
+  position: relative;
+
+  p {
+    font-family: $font-std;
+    color: white;
+  }
+}
