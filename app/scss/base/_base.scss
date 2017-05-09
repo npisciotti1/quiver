@@ -23,19 +23,14 @@ h2 {
   }
 }
 
-main{
+main {
   max-width: 960px;
   width: 90%;
   margin: 5% 5%;
   min-height: 750px;
-  margin-top: 15vw;
+  margin-top: 10vw;
 }
 
-footer {
-  height: 10vw;
-  width: 100%;
-  background-color: $site-tertiary;
-}
 
 button {
   cursor: pointer;
