@@ -11,11 +11,10 @@
     margin-left: 0px;
 
     .pagination-controls-wrapper {
-      background-color: #82878e;
       border-radius: 5px;
-      width: 75%;
 
-      .pagination {
+      ul {
+        width: 30%;
 
         li {
           display: inline-block;
@@ -48,7 +47,9 @@
             color: #000000;
           }
         }
-
+        li:last-child {
+          margin-right: 0px;
+        }
       }
     }
 
