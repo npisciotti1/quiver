@@ -9,5 +9,7 @@ footer {
   p {
     font-family: $font-std;
     color: white;
+    position: absolute;
+    top: 85%;
   }
 }
